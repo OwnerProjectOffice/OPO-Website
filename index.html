@@ -3,592 +3,760 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Owner Project Office - Fractional PMO · AI Implementation · Business Development</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
+<title>Owner Project Office — Fractional PMO & Process Consulting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --black: #0d0d0d;
-    --black-mid: #1a1a1a;
-    --gray-dark: #2e2e2e;
-    --gray-mid: #6b6b6b;
-    --gray-light: #b8b8b8;
-    --gray-pale: #e8e6e1;
-    --cream: #f5f3ee;
-    --white: #ffffff;
-    --accent: #1a1a1a;
-    --rule: #d0cdc7;
-    --bebas: 'Bebas Neue', sans-serif;
-    --cond: 'Barlow Condensed', sans-serif;
-    --body: 'Barlow', sans-serif;
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --charcoal:#1c1c1e;
+  --charcoal2:#252527;
+  --charcoal3:#2f2f32;
+  --surface:#333336;
+  --accent:#a8c8e8;
+  --accent-dk:#7aafd4;
+  --white:#ffffff;
+  --off:#f2f1ef;
+  --muted:#8a8a8e;
+  --rule:rgba(255,255,255,0.08);
+  --rule-lt:#e0dedd;
+  --serif:'Playfair Display',serif;
+  --sans:'Instrument Sans',sans-serif;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+html{font-size:16px;scroll-behavior:smooth;}
+body{background:var(--charcoal);color:var(--white);font-family:var(--sans);font-weight:400;overflow-x:hidden;}
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ── NAV ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:0 3.5rem;height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background 0.4s var(--ease);
+}
+.nav.scrolled{background:rgba(28,28,30,0.97);border-bottom:1px solid var(--rule);}
+.nav-logo{
+  font-family:var(--serif);font-size:21px;font-weight:600;
+  color:var(--white);text-decoration:none;letter-spacing:0.01em;
+  display:flex;align-items:center;gap:12px;
+}
+.nav-logo-pipe{width:1px;height:20px;background:var(--rule);flex-shrink:0;}
+.nav-logo-sub{font-family:var(--sans);font-size:10.5px;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);}
+.nav-links{display:flex;align-items:center;gap:2.25rem;list-style:none;}
+.nav-links a{font-family:var(--sans);font-size:13px;font-weight:400;color:var(--muted);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{
+  font-family:var(--sans);font-size:12px;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  background:var(--accent);color:var(--charcoal);
+  padding:10px 24px;text-decoration:none;
+  transition:background 0.2s,transform 0.2s;
+}
+.nav-cta:hover{background:var(--accent-dk);}
 
-  html { font-size: 16px; }
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;
+}
+.hero-left{
+  padding:10rem 4rem 6rem;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;z-index:1;
+}
+.hero-eyebrow{
+  font-family:var(--sans);font-size:11px;font-weight:500;
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:2rem;
+  display:flex;align-items:center;gap:12px;
+}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--accent);}
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(52px,6.5vw,88px);
+  font-weight:700;line-height:1.04;
+  letter-spacing:-0.02em;color:var(--white);
+  margin-bottom:2rem;
+}
+.hero h1 em{font-style:italic;color:var(--accent);}
+.hero-body{
+  font-size:15px;font-weight:300;line-height:1.85;
+  color:var(--muted);max-width:440px;margin-bottom:3rem;
+}
+.hero-actions{display:flex;align-items:center;gap:1.75rem;flex-wrap:wrap;margin-bottom:3rem;}
+.btn-primary{
+  font-family:var(--sans);font-size:12px;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  background:var(--accent);color:var(--charcoal);
+  padding:14px 32px;text-decoration:none;
+  transition:background 0.2s;display:inline-block;
+}
+.btn-primary:hover{background:var(--accent-dk);}
+.btn-text{
+  font-family:var(--sans);font-size:13px;font-weight:400;
+  color:var(--muted);text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:2px;
+  transition:color 0.2s,border-color 0.2s;
+}
+.btn-text:hover{color:var(--white);border-color:rgba(255,255,255,0.4);}
+.hero-right{
+  position:relative;overflow:hidden;
+}
+.hero-right img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:brightness(0.55) contrast(1.1);
+}
+.hero-right::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to right,var(--charcoal) 0%,transparent 40%);
+}
+.hero-stat-strip{
+  display:flex;gap:3rem;
+  padding-top:2rem;
+  border-top:1px solid var(--rule);
+}
+.h-stat-n{font-family:var(--serif);font-size:40px;font-weight:700;color:var(--white);line-height:1;}
+.h-stat-l{font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
 
-  body {
-    background: var(--cream);
-    color: var(--black);
-    font-family: var(--body);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-  }
+/* ── TICKER ── */
+.ticker{background:var(--accent);padding:12px 0;overflow:hidden;}
+.ticker-track{display:flex;white-space:nowrap;animation:tick 30s linear infinite;}
+.ticker-track span{
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--charcoal);padding:0 2rem;
+  border-right:1px solid rgba(28,28,30,0.2);
+}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-  /* Noise texture overlay */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    opacity: 0.025;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 200px 200px;
-    pointer-events: none;
-    z-index: 100;
-  }
+/* ── SHARED ── */
+.sec{padding:7rem 4rem;}
+.sec-lt{padding:7rem 4rem;background:var(--off);color:var(--charcoal);}
+.label{
+  font-family:var(--sans);font-size:11px;font-weight:500;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:1.25rem;
+  display:flex;align-items:center;gap:10px;
+}
+.sec-lt .label{color:var(--charcoal);opacity:0.45;}
+.label::before{content:'';width:18px;height:1px;background:currentColor;}
+h2.disp{
+  font-family:var(--serif);
+  font-size:clamp(40px,5vw,68px);
+  font-weight:700;line-height:1.04;letter-spacing:-0.02em;
+  color:var(--white);margin-bottom:1.5rem;
+}
+.sec-lt h2.disp{color:var(--charcoal);}
+h2.disp em{font-style:italic;color:var(--accent);}
+.sec-lt h2.disp em{color:var(--charcoal);opacity:0.35;}
+.body-p{font-size:15px;font-weight:300;line-height:1.85;color:var(--muted);max-width:560px;}
+.sec-lt .body-p{color:#555;}
 
-  /* Layout */
-  .page {
-    flex: 1;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-    padding: 0;
-  }
+/* ── ABOUT ── */
+.about-wrap{
+  display:grid;grid-template-columns:7fr 5fr;
+  gap:6rem;align-items:center;margin-top:4rem;
+}
+.about-left{}
+.about-quote{
+  font-family:var(--serif);font-size:clamp(20px,2.5vw,26px);
+  font-style:italic;line-height:1.5;color:var(--white);
+  border-left:3px solid var(--accent);padding-left:1.75rem;
+  margin:2.5rem 0;
+}
+.about-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:2rem;}
+.pill{
+  font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
+  padding:7px 16px;border:1px solid var(--rule);color:var(--muted);
+  transition:border-color 0.2s,color 0.2s;
+}
+.pill:hover{border-color:var(--accent);color:var(--accent);}
+.pill.hi{border-color:var(--accent);color:var(--accent);}
+.about-img{position:relative;border-radius:2px;overflow:hidden;}
+.about-img img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;filter:brightness(0.75);}
+.about-img-tag{
+  position:absolute;bottom:1.5rem;left:1.5rem;
+  background:var(--accent);color:var(--charcoal);
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;
+  padding:8px 16px;
+}
 
-  /* ── TOP BAR ── */
-  .topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 1.5rem;
-    background: white;
-    border-bottom: 1px solid var(--rule);
-    opacity: 0;
-    animation: fadeIn 0.6s ease 0.1s forwards;
-  }
+/* ── SERVICES ── */
+.svc-intro{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:end;margin-bottom:4rem;
+}
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--rule);}
+.svc-card{
+  background:var(--charcoal2);padding:3rem 2.5rem;
+  position:relative;overflow:hidden;
+  transition:background 0.3s var(--ease);cursor:default;
+}
+.svc-card::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:var(--accent);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s var(--ease);
+}
+.svc-card:hover{background:var(--charcoal3);}
+.svc-card:hover::before{transform:scaleX(1);}
+.svc-n{
+  font-family:var(--serif);font-size:64px;font-weight:700;
+  color:var(--rule);line-height:1;margin-bottom:1.5rem;
+  transition:color 0.3s;
+}
+.svc-card:hover .svc-n{color:rgba(168,200,232,0.15);}
+.svc-tag{
+  font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:0.75rem;display:block;
+}
+.svc-title{
+  font-family:var(--serif);font-size:24px;font-weight:600;
+  color:var(--white);margin-bottom:0.75rem;line-height:1.2;
+}
+.svc-desc{font-size:13px;font-weight:300;line-height:1.8;color:var(--muted);margin-bottom:1.5rem;}
+.svc-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;}
+.svc-list li{
+  font-size:12.5px;font-weight:400;color:#777;
+  padding-left:14px;position:relative;line-height:1.5;
+}
+.svc-list li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:1px;background:#555;}
 
-  .logo-wrap img {
-    height: 120px;
-    width: auto;
-    display: block;
-  }
+/* ── FULL BLEED ── */
+.fb{position:relative;height:520px;overflow:hidden;}
+.fb img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.4) contrast(1.1);}
+.fb-inner{
+  position:absolute;inset:0;display:flex;align-items:center;
+  padding:0 5rem;
+}
+.fb-text{max-width:800px;}
+.fb-text p{
+  font-family:var(--serif);font-size:clamp(28px,4vw,50px);
+  font-style:italic;font-weight:400;line-height:1.3;color:var(--white);
+  margin-bottom:1.5rem;
+}
+.fb-text cite{
+  font-family:var(--sans);font-size:12px;font-weight:400;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);font-style:normal;
+}
+.fb-accent{
+  width:40px;height:3px;background:var(--accent);margin-bottom:2rem;
+}
 
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-  }
+/* ── METHODOLOGY ── */
+.method-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;margin-top:4rem;
+}
+.method-card{
+  padding:2.5rem 2rem;
+  border-right:1px solid var(--rule-lt);
+  border-bottom:1px solid var(--rule-lt);
+  transition:background 0.25s;
+}
+.method-card:hover{background:var(--charcoal);color:var(--white);}
+.method-card:hover .m-num,.method-card:hover .m-title{color:var(--white);}
+.method-card:hover .m-body{color:var(--muted);}
+.method-card:hover .m-tag{color:var(--accent);border-color:rgba(168,200,232,0.3);}
+.method-card:nth-child(3n){border-right:none;}
+.method-card:nth-child(n+4){border-bottom:none;}
+.m-num{
+  font-family:var(--serif);font-size:56px;font-weight:700;
+  color:var(--rule-lt);line-height:1;margin-bottom:1.25rem;
+  transition:color 0.25s;
+}
+.m-tag{
+  font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;
+  color:#777;border:1px solid var(--rule-lt);
+  padding:4px 12px;display:inline-block;margin-bottom:0.75rem;
+  transition:color 0.25s,border-color 0.25s;
+}
+.m-title{
+  font-family:var(--serif);font-size:22px;font-weight:600;
+  color:var(--charcoal);margin-bottom:0.75rem;line-height:1.2;
+  transition:color 0.25s;
+}
+.m-body{font-size:13px;font-weight:300;line-height:1.8;color:#666;transition:color 0.25s;}
 
-  .nav-tag {
-    font-family: var(--cond);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gray-mid);
-  }
+/* ── INDUSTRIES ── */
+.ind-wrap{
+  display:grid;grid-template-columns:5fr 7fr;
+  gap:6rem;align-items:start;margin-top:4rem;
+}
+.ind-img{position:relative;overflow:hidden;border-radius:2px;}
+.ind-img img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;filter:brightness(0.65);}
+.ind-img-cap{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(to top,rgba(28,28,30,0.95),transparent);
+  padding:2rem 1.75rem 1.75rem;
+}
+.ind-img-cap p{font-size:13px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.65;}
+.ind-list{display:flex;flex-direction:column;}
+.ind-item{
+  display:grid;grid-template-columns:52px 1fr;gap:1.5rem;
+  padding:1.5rem 0;border-bottom:1px solid var(--rule);
+  transition:background 0.2s;
+}
+.ind-item:first-child{border-top:1px solid var(--rule);}
+.ind-n{
+  font-family:var(--serif);font-size:30px;font-weight:700;
+  color:var(--rule);line-height:1;padding-top:2px;
+  transition:color 0.2s;
+}
+.ind-item:hover .ind-n{color:var(--accent);}
+.ind-name{font-size:15px;font-weight:500;color:var(--white);margin-bottom:4px;}
+.ind-desc{font-size:13px;font-weight:300;line-height:1.65;color:var(--muted);}
 
-  .status-tag {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-family: var(--cond);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--black);
-    border: 1px solid var(--black);
-    padding: 5px 14px 5px 10px;
-  }
+/* ── PROCESS ── */
+.process-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;margin-top:4.5rem;
+}
+.p-step{
+  padding:0 2.5rem 0 0;
+  border-right:1px solid var(--rule-lt);
+}
+.p-step:last-child{border-right:none;padding-right:0;}
+.p-step:not(:first-child){padding-left:2.5rem;}
+.p-n{
+  font-family:var(--serif);font-size:56px;font-weight:700;
+  color:rgba(28,28,30,0.15);line-height:1;margin-bottom:1.5rem;
+}
+.p-week{
+  font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--charcoal);opacity:0.4;margin-bottom:0.6rem;
+}
+.p-title{font-size:16px;font-weight:600;color:var(--charcoal);margin-bottom:0.6rem;}
+.p-body{font-size:13px;font-weight:300;line-height:1.75;color:#666;}
 
-  .blink {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--black);
-    animation: blink 1.4s step-end infinite;
-  }
+/* ── RESULTS ── */
+.results-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;background:var(--rule);margin-top:4rem;
+}
+.r-card{background:var(--charcoal2);padding:2.5rem;}
+.r-n{
+  font-family:var(--serif);font-size:60px;font-weight:700;
+  color:var(--accent);line-height:1;margin-bottom:0.5rem;
+}
+.r-label{font-size:13px;font-weight:500;color:var(--white);margin-bottom:0.5rem;}
+.r-desc{font-size:13px;font-weight:300;line-height:1.7;color:var(--muted);}
+.results-img-row{
+  display:grid;grid-template-columns:2fr 1fr 1fr;
+  gap:2px;margin-top:2px;height:280px;background:var(--rule);
+}
+.rim img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.7);}
 
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
+/* ── CTA ── */
+.cta{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:500px;
+}
+.cta-img{position:relative;overflow:hidden;}
+.cta-img img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.5) contrast(1.1);}
+.cta-img::after{content:'';position:absolute;inset:0;background:rgba(28,28,30,0.3);}
+.cta-body{
+  background:var(--accent);
+  padding:5rem;
+  display:flex;flex-direction:column;justify-content:center;gap:1.5rem;
+}
+.cta-body .label{color:var(--charcoal);opacity:0.5;}
+.cta-body .label::before{background:var(--charcoal);}
+.cta-body h2.disp{color:var(--charcoal);}
+.cta-body h2.disp em{color:var(--charcoal);opacity:0.35;}
+.cta-body p{font-size:15px;font-weight:300;line-height:1.8;color:rgba(28,28,30,0.65);}
+.cta-name{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--charcoal);margin-bottom:3px;}
+.cta-meta{font-size:13px;font-weight:300;color:rgba(28,28,30,0.55);margin-bottom:2px;}
+.cta-email{font-size:14px;font-weight:500;color:var(--charcoal);}
+.btn-dark{
+  font-family:var(--sans);font-size:12px;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  background:var(--charcoal);color:var(--accent);
+  padding:14px 32px;text-decoration:none;
+  align-self:flex-start;transition:background 0.2s;
+}
+.btn-dark:hover{background:var(--charcoal2);}
 
-  /* ── MAIN ── */
-  .main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 0;
-  }
+/* ── FOOTER ── */
+footer{
+  background:var(--charcoal2);
+  padding:2rem 4rem;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid var(--rule);
+}
+.f-logo{font-family:var(--serif);font-size:18px;font-weight:600;color:rgba(255,255,255,0.25);}
+.f-mid{font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.15);}
+.f-url{font-size:11px;font-weight:400;color:rgba(255,255,255,0.2);letter-spacing:0.06em;}
 
-  /* Left column */
-  .left {
-    padding: 5rem 3.5rem 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-right: 1px solid var(--rule);
-  }
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.75s var(--ease),transform 0.75s var(--ease);}
+.reveal.visible{opacity:1;transform:none;}
+.d1{transition-delay:0.1s;}.d2{transition-delay:0.2s;}.d3{transition-delay:0.3s;}.d4{transition-delay:0.4s;}
 
-  .left-top { flex: 1; }
-
-  .eyebrow {
-    font-family: var(--cond);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gray-mid);
-    margin-bottom: 2.5rem;
-    opacity: 0;
-    animation: fadeIn 0.7s ease 0.3s forwards;
-  }
-
-  .headline {
-    font-family: var(--bebas);
-    font-size: clamp(72px, 9vw, 128px);
-    line-height: 0.92;
-    letter-spacing: 0.01em;
-    color: var(--black);
-    margin-bottom: 2.5rem;
-    opacity: 0;
-    animation: fadeIn 0.8s ease 0.45s forwards;
-  }
-
-  .headline span {
-    display: block;
-  }
-
-  .headline .line-accent {
-    color: var(--gray-mid);
-  }
-
-  .descriptor {
-    font-family: var(--body);
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 1.75;
-    color: var(--gray-dark);
-    max-width: 400px;
-    margin-bottom: 3rem;
-    opacity: 0;
-    animation: fadeIn 0.8s ease 0.6s forwards;
-  }
-
-  .descriptor strong {
-    font-weight: 500;
-    color: var(--black);
-  }
-
-  /* Service tags */
-  .service-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 3.5rem;
-    opacity: 0;
-    animation: fadeIn 0.8s ease 0.72s forwards;
-  }
-
-  .stag {
-    font-family: var(--cond);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gray-dark);
-    border: 1px solid var(--rule);
-    padding: 6px 12px;
-    background: var(--white);
-  }
-
-  /* CTA */
-  .cta-block {
-    opacity: 0;
-    animation: fadeIn 0.8s ease 0.85s forwards;
-  }
-
-  .cta-label {
-    font-family: var(--cond);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gray-light);
-    margin-bottom: 0.5rem;
-  }
-
-  .cta-email {
-    font-family: var(--cond);
-    font-size: 20px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--black);
-    text-decoration: none;
-    display: inline-block;
-    border-bottom: 2px solid var(--black);
-    padding-bottom: 2px;
-    transition: color 0.2s, border-color 0.2s;
-  }
-
-  .cta-email:hover {
-    color: var(--gray-mid);
-    border-color: var(--gray-mid);
-  }
-
-  .cta-li {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--cond);
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gray-mid);
-    text-decoration: none;
-    margin-top: 0.75rem;
-    transition: color 0.2s;
-  }
-
-  .cta-li:hover { color: var(--black); }
-
-  .li-svg { width: 14px; height: 14px; fill: currentColor; }
-
-  /* Right column */
-  .right {
-    padding: 5rem 3.5rem 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: var(--white);
-  }
-
-  /* Big stat / statement */
-  .statement-block {
-    opacity: 0;
-    animation: fadeIn 0.8s ease 0.5s forwards;
-  }
-
-  .statement-num {
-    font-family: var(--bebas);
-    font-size: clamp(80px, 14vw, 100px);
-    line-height: 1;
-    color: var(--gray-pale);
-    letter-spacing: -0.02em;
-    margin-bottom: -1rem;
-  }
-
-  .statement-text {
-    font-family: var(--cond);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gray-mid);
-    margin-bottom: 3rem;
-  }
-
-  /* Pillars */
-  .pillars {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    opacity: 0;
-    animation: fadeIn 0.8s ease 0.65s forwards;
-  }
-
-  .pillar {
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--rule);
-    display: grid;
-    grid-template-columns: 28px 1fr;
-    gap: 1rem;
-    align-items: start;
-  }
-
-  .pillar:last-child { border-bottom: 1px solid var(--rule); }
-
-  .pillar-num {
-    font-family: var(--bebas);
-    font-size: 22px;
-    color: var(--gray-light);
-    line-height: 1;
-    padding-top: 2px;
-  }
-
-  .pillar-content h4 {
-    font-family: var(--cond);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--black);
-    margin-bottom: 3px;
-  }
-
-  .pillar-content p {
-    font-family: var(--body);
-    font-size: 13px;
-    font-weight: 300;
-    line-height: 1.6;
-    color: var(--gray-mid);
-  }
-
-  /* Mariah block */
-  .founder-block {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--rule);
-    opacity: 0;
-    animation: fadeIn 0.8s ease 0.9s forwards;
-  }
-
-  .founder-label {
-    font-family: var(--cond);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gray-light);
-    margin-bottom: 0.5rem;
-  }
-
-  .founder-name {
-    font-family: var(--cond);
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--black);
-    margin-bottom: 2px;
-  }
-
-  .founder-title {
-    font-family: var(--body);
-    font-size: 13px;
-    font-weight: 300;
-    color: var(--gray-mid);
-  }
-
-  /* ── FOOTER ── */
-  .footer {
-    display: flex;
-    background: white;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 3.5rem;
-    border-top: 1px solid var(--rule);
-    opacity: 0;
-    animation: fadeIn 0.6s ease 1.1s forwards;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .footer-left {
-    font-family: var(--cond);
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gray-light);
-  }
-
-  .footer-locations {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .floc {
-    font-family: var(--cond);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gray-light);
-  }
-
-  .floc-sep {
-    font-family: var(--cond);
-    font-size: 10px;
-    color: var(--rule);
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 860px) {
-    .topbar { padding: 1.5rem 2rem; }
-    .main { grid-template-columns: 1fr; }
-    .left {
-      padding: 3rem 2rem 2.5rem;
-      border-right: none;
-      border-bottom: 1px solid var(--rule);
-    }
-    .right { padding: 3rem 2rem 2.5rem; }
-    .footer { padding: 1.5rem 2rem; }
-    .statement-num { font-size: 100px; }
-    .headline { font-size: clamp(64px, 15vw, 100px); }
-  }
-
-  @media (max-width: 480px) {
-    .topbar { padding: 1.25rem 1.25rem; }
-    .nav-right { gap: 1rem; }
-    .nav-tag { display: none; }
-    .left, .right { padding: 2.5rem 1.25rem; }
-    .footer { padding: 1.25rem; }
-    .footer-locations { gap: 0.75rem; }
-  }
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .nav{padding:0 1.5rem;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-left{padding:8rem 1.5rem 4rem;}
+  .hero-right{height:340px;}
+  .hero-stat-strip{left:1.5rem;bottom:1.5rem;gap:2rem;}
+  .sec,.sec-lt{padding:4rem 1.5rem;}
+  .about-wrap,.svc-intro,.ind-wrap,.cta{grid-template-columns:1fr;}
+  .svc-grid,.method-grid,.results-grid{grid-template-columns:1fr;}
+  .svc-grid,.results-grid{background:transparent;gap:1rem;}
+  .svc-card,.r-card{border:1px solid var(--rule);}
+  .method-card{border:1px solid var(--rule-lt);}
+  .process-grid{grid-template-columns:1fr 1fr;gap:2rem;}
+  .p-step{border:none;padding:0!important;}
+  .results-img-row{grid-template-columns:1fr 1fr;height:auto;}
+  .results-img-row .rim:first-child{grid-column:1/3;}
+  .results-img-row .rim img,.results-img-row .rim:first-child img{height:220px;}
+  .cta-img{height:280px;}
+  .cta-body{padding:3rem 1.5rem;}
+  .fb{height:auto;padding:5rem 1.5rem;}
+  .fb img{display:none;}
+  .fb-inner{position:relative;padding:0;}
+  footer{padding:1.5rem;flex-direction:column;gap:0.5rem;text-align:center;}
+}
+@media(max-width:600px){
+  .process-grid{grid-template-columns:1fr;}
+  .h-stat-n{font-size:28px;}
+}
 </style>
 </head>
 <body>
 
-<div class="page">
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a class="nav-logo" href="#">
+    OPO
+    <span class="nav-logo-pipe"></span>
+    <span class="nav-logo-sub">Owner Project Office</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#process">Process</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:info@ownerprojectoffice.com">Work With Us</a>
+</nav>
 
-  <!-- TOP BAR -->
-  <header class="topbar">
-    <div class="logo-wrap">
-      <img src="images/owner-header.png" alt="Owner Project Office" />
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Fractional PMO &amp; Process Consulting</div>
+    <h1>Industrial<br>Operations,<br><em>Scaled.</em></h1>
+    <p class="hero-body">OPO embeds into your business as a full-stack program management and process improvement partner — building the systems, SOPs, and pipeline your company needs to grow without breaking.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="mailto:info@ownerprojectoffice.com">Start the Conversation</a>
+      <a class="btn-text" href="#services">Explore services</a>
     </div>
-    <div class="nav-right">
-      <span class="nav-tag">Canada &amp; USA</span>
-      <div class="status-tag">
-        <div class="blink"></div>
-        Limited Spots Available
+    <div class="hero-stat-strip">
+      <div>
+        <div class="h-stat-n">0→16</div>
+        <div class="h-stat-l">PM Team Built</div>
       </div>
-    </div>
-  </header>
-
-  <!-- MAIN GRID -->
-  <div class="main">
-
-    <!-- LEFT -->
-    <div class="left">
-      <div class="left-top">
-
-        <p class="eyebrow">Project Management · AI Implementation · Business Development</p>
-
-        <h1 class="headline">
-          <span>Built</span>
-          <span>for the</span>
-          <span class="line-accent">owner's</span>
-          <span>side.</span>
-        </h1>
-
-        <p class="descriptor">
-          Owner Project Office delivers fractional PMO, business development, and AI implementation services for transformer, electrical infrastructure, and industrial companies across Canada and the United States. We sit on the owner's side of the table managing projects, implementing AI-driven process improvements, and building the operational infrastructure that lets your business scale. </p>
-
-        <div class="service-tags">
-          <span class="stag">Owner's Rep PM</span>
-          <span class="stag">AI implementation</span>
-          <span class="stag">PMO &amp; SOPs</span>
-          <span class="stag">Business development</span>
-          <span class="stag">Process optimization</span>
-          <span class="stag">Industrial startups</span>
-        </div>
-
+      <div>
+        <div class="h-stat-n">ISO</div>
+        <div class="h-stat-l">9001:2015 Aligned</div>
       </div>
-
-      <div class="cta-block">
-        <p class="cta-label">Get in touch now</p>
-        <a href="mailto:info@ownerprojectoffice.com" class="cta-email">info@ownerprojectoffice.com</a>
-        <br>
-        <a href="https://www.linkedin.com/in/mariah-feser/" class="cta-li" target="_blank" rel="noopener">
-          <svg class="li-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-          Connect on LinkedIn
-        </a>
+      <div>
+        <div class="h-stat-n">30d</div>
+        <div class="h-stat-l">First Deliverable</div>
       </div>
     </div>
-
-    <!-- RIGHT -->
-    <div class="right">
-
-      <div class="statement-block">
-        <div class="statement-num">3 Core Disciplines</div>
-        <p class="statement-text">Project Management, Business Development & AI Implementation delivered in one integrated service</p>
-      </div>
-
-      <div class="pillars">
-
-        <div class="pillar">
-          <div class="pillar-num">01</div>
-          <div class="pillar-content">
-            <h4>Transformer &amp; electrical infrastructure</h4>
-            <p>Expertise from inside a transformer manufacturer. Experience with FAT requirements, procurement management, and project compliance from PO to energization.
-            </p>
-          </div>
-        </div>
-
-        <div class="pillar">
-          <div class="pillar-num">02</div>
-          <div class="pillar-content">
-            <h4>Business development & sales</h4>
-            <p>We identify, pursue, and close new client relationships for industrial and electrical companies building pipelines, supporting proposals, and managing the commercial relationship from first contact through signed contract. No cap on what we can build together.</p>
-          </div>
-        </div>
-
-        <div class="pillar">
-          <div class="pillar-num">03</div>
-          <div class="pillar-content">
-            <h4>AI implementation &amp; process automation</h4>
-            <p>We identify where AI tools and automation can eliminate bottlenecks, reduce manual work and streamline operations, then implement them. Practical AI for industrial businesses, not theory.</p>
-          </div>
-        </div>
-
-        <div class="pillar">
-          <div class="pillar-num">04</div>
-          <div class="pillar-content">
-            <h4>PMO buildout &amp; SOP development</h4>
-            <p>OPO can do PMO buildout for your business - systems, tools, templates, and AI-enhanced workflows that can scale.</p>
-          </div>
-        </div>
-
-        <div class="pillar">
-          <div class="pillar-num">05</div>
-          <div class="pillar-content">
-            <h4>Industrial startups &amp; SME's</h4>
-            <p>Project management and operations leadership with business development support for growing industrial companies without the full-time overhead. We grow with you.</p>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="founder-block">
-        <p class="founder-label">Founder</p>
-        <p class="founder-name">Mariah Feser, PMP</p>
-        <p class="founder-title">Founder &amp; Principal - Owner Project Office</p>
-      </div>
-
-    </div>
-
   </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=900&auto=format&fit=crop&q=80" alt="Industrial operations" loading="eager">
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p class="footer-left">© 2026 Owner Project Office &nbsp;·&nbsp;</p>
-    <div class="footer-locations">
-      <span class="floc">Canada</span>
-      <span class="floc-sep">/</span>
-      <span class="floc">USA</span>
-    </div>
-  </footer>
-
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>PMP Certified</span><span>SOP Development</span><span>ISO 9001:2015</span><span>Lean Six Sigma</span><span>AI Automation</span><span>Business Development</span><span>Document Control</span><span>Industrial Sector</span><span>Project Governance</span><span>Fractional Model</span><span>Vancouver BC</span>
+    <span>PMP Certified</span><span>SOP Development</span><span>ISO 9001:2015</span><span>Lean Six Sigma</span><span>AI Automation</span><span>Business Development</span><span>Document Control</span><span>Industrial Sector</span><span>Project Governance</span><span>Fractional Model</span><span>Vancouver BC</span>
+  </div>
 </div>
 
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="about-wrap">
+    <div class="about-left reveal">
+      <div class="label">About OPO</div>
+      <h2 class="disp">Built from<br>the inside <em>out.</em></h2>
+      <p class="body-p">Owner Project Office was founded by Mariah Feser, PMP — a project management and operational systems leader who built a PM department from zero to a team of 16 at a multi-site industrial manufacturer, implementing ISO-aligned SOPs, AI process automation, and cross-functional infrastructure along the way.</p>
+      <div class="about-quote">"The gap is rarely the product. It's the operational infrastructure and pipeline needed to scale it reliably."</div>
+      <p class="body-p" style="font-size:14px;">OPO commercializes that operational expertise — bringing the rigor of a full in-house PMO to industrial companies that need the function without the full-time overhead. Retainer-based. Embedded. Built around measurable outcomes.</p>
+      <div class="about-pills">
+        <span class="pill hi">PMP Certified</span>
+        <span class="pill hi">ISO 9001:2015</span>
+        <span class="pill hi">Lean Six Sigma</span>
+        
+        
+        <span class="pill">AI Automation</span>
+        <span class="pill">Industrial Sector</span>
+      </div>
+    </div>
+    <div class="about-img reveal d2">
+      <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&auto=format&fit=crop&q=80" alt="Operational environment">
+      <div class="about-img-tag">Vancouver, BC · Canada</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services" style="padding-top:0;">
+  <div class="svc-intro">
+    <div class="reveal">
+      <div class="label">What We Deliver</div>
+      <h2 class="disp">Four pillars.<br>One <em>integrated</em><br>engagement.</h2>
+    </div>
+    <div class="reveal d1">
+      <p class="body-p">OPO is not a staffing solution or a firm that produces recommendations. OPO embeds, implements, and executes — leaving behind operational infrastructure that functions long after the engagement ends.</p>
+    </div>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal">
+      <div class="svc-n">01</div>
+      <span class="svc-tag">Fractional PMO</span>
+      <div class="svc-title">Program Management Office</div>
+      <p class="svc-desc">Full operational PM infrastructure built and managed as an embedded function — systems, processes, governance, and reporting that scale with your business.</p>
+      <ul class="svc-list">
+        <li>SOP development across all operational functions</li>
+        <li>Platform and software implementation</li>
+        <li>Project tracking, milestone management, client reporting</li>
+        <li>Monthly operations reviews with leadership</li>
+      </ul>
+    </div>
+    <div class="svc-card reveal d1">
+      <div class="svc-n">02</div>
+      <span class="svc-tag">Business Development</span>
+      <div class="svc-title">Pipeline Building &amp; Deal Management</div>
+      <p class="svc-desc">OPO builds your sales pipeline — identifying, pursuing, and closing new client relationships, then managing every originated project from PO to delivery.</p>
+      <ul class="svc-list">
+        <li>Prospect identification and pipeline development</li>
+        <li>Outreach and relationship-building across sectors</li>
+        <li>Proposal, RFQ support, and contract negotiation</li>
+        <li>End-to-end project delivery on originated deals</li>
+      </ul>
+    </div>
+    <div class="svc-card reveal d2">
+      <div class="svc-n">03</div>
+      <span class="svc-tag">ISO 9001:2015</span>
+      <div class="svc-title">Quality Management System</div>
+      <p class="svc-desc">Audit-ready QMS design and implementation — processes, document control, and corrective action systems built for industrial environments.</p>
+      <ul class="svc-list">
+        <li>Gap analysis against ISO 9001:2015 requirements</li>
+        <li>Process mapping and procedure documentation</li>
+        <li>Internal audit preparation and readiness assessment</li>
+        <li>Ongoing QMS maintenance and continual improvement</li>
+      </ul>
+    </div>
+    <div class="svc-card reveal d3">
+      <div class="svc-n">04</div>
+      <span class="svc-tag">Lean Six Sigma + AI</span>
+      <div class="svc-title">Process Improvement &amp; Automation</div>
+      <p class="svc-desc">DMAIC methodology applied alongside AI tooling — eliminating waste, reducing cycle times, and driving operational efficiency at every level.</p>
+      <ul class="svc-list">
+        <li>Value stream mapping and bottleneck analysis</li>
+        <li>Waste identification and elimination</li>
+        <li>AI tool assessment, selection, and implementation</li>
+        <li>KPI development and performance measurement</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FULL BLEED -->
+<div class="fb">
+  <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?w=1800&auto=format&fit=crop&q=80" alt="Infrastructure">
+  <div class="fb-inner">
+    <div class="fb-text">
+      <div class="fb-accent"></div>
+      <p>"Companies with strong products get stuck because they don't have the operational infrastructure to deliver consistently at scale — or the pipeline to fill it."</p>
+      <cite>— Mariah Feser, PMP · Founder &amp; Principal, Owner Project Office</cite>
+    </div>
+  </div>
+</div>
+
+<!-- METHODOLOGY -->
+<section class="sec-lt" id="methodology">
+  <div class="label">Methodology</div>
+  <h2 class="disp">Frameworks that<br><em>actually hold.</em></h2>
+  <p class="body-p" style="margin-bottom:0;">OPO integrates globally recognized management frameworks with practical, industrial-grade execution — systems that function at scale, not just on paper.</p>
+  <div class="method-grid">
+    <div class="method-card reveal">
+      <div class="m-num">01</div>
+      <div class="m-tag">Project Management</div>
+      <div class="m-title">PMBOK / PMP Framework</div>
+      <p class="m-body">Structured project governance: scope definition, schedule control, risk registers, change management, and stakeholder reporting applied to complex industrial programs with long delivery cycles.</p>
+    </div>
+    <div class="method-card reveal d1">
+      <div class="m-num">02</div>
+      <div class="m-tag">Quality Management</div>
+      <div class="m-title">ISO 9001:2015 QMS</div>
+      <p class="m-body">Risk-based thinking, process approach, and continual improvement embedded into daily operations. Document control and audit infrastructure built for manufacturing and industrial service environments.</p>
+    </div>
+    <div class="method-card reveal d2">
+      <div class="m-num">03</div>
+      <div class="m-tag">Process Excellence</div>
+      <div class="m-title">Lean Six Sigma DMAIC</div>
+      <p class="m-body">Define, Measure, Analyze, Improve, Control — structured problem-solving applied to production bottlenecks, order cycle time, supplier quality, and operational cost reduction at the sigma level.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="sec" id="industries">
+  <div class="label">Industries Served</div>
+  <h2 class="disp">Built for<br><em>industrial</em> operators.</h2>
+  <div class="ind-wrap">
+    <div class="ind-img reveal">
+      <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&auto=format&fit=crop&q=80" alt="Industrial facility">
+      <div class="ind-img-cap">
+        <p>Deep expertise in power transformer manufacturing, electrical infrastructure, and capital equipment programs — with the systems knowledge to manage complex delivery.</p>
+      </div>
+    </div>
+    <div class="reveal d1">
+      <p class="body-p" style="margin-bottom:2.5rem;">OPO is purpose-built for companies that manufacture, build, or operate in physical environments — where project complexity is high, delivery stakes are real, and operational failures are visible.</p>
+      <div class="ind-list">
+        <div class="ind-item">
+          <div class="ind-n">01</div>
+          <div>
+            <div class="ind-name">Electrical Infrastructure &amp; Power Equipment</div>
+            <p class="ind-desc">Power transformers, switchgear, substations, and electrical equipment manufacturers navigating custom-engineered delivery and utility-grade project requirements.</p>
+          </div>
+        </div>
+        <div class="ind-item">
+          <div class="ind-n">02</div>
+          <div>
+            <div class="ind-name">Industrial Manufacturing</div>
+            <p class="ind-desc">Operational scaling for growing manufacturers — SOPs, quality systems, onboarding frameworks, and cross-functional process design for multi-site environments.</p>
+          </div>
+        </div>
+        <div class="ind-item">
+          <div class="ind-n">03</div>
+          <div>
+            <div class="ind-name">Mining, Oil &amp; Gas</div>
+            <p class="ind-desc">Capital project oversight, equipment procurement, and process design for resource extraction and oilfield services in regulated environments.</p>
+          </div>
+        </div>
+        <div class="ind-item">
+          <div class="ind-n">04</div>
+          <div>
+            <div class="ind-name">EPC &amp; Energy Development</div>
+            <p class="ind-desc">Engineering, procurement, and construction programs — RFQ management, contractor coordination, milestone reporting, and owner's representative services across North America.</p>
+          </div>
+        </div>
+        <div class="ind-item">
+          <div class="ind-n">05</div>
+          <div>
+            <div class="ind-name">Industrial Startups &amp; SMEs</div>
+            <p class="ind-desc">Emerging industrial companies that need PMO infrastructure and business development capacity without the overhead of a full internal department.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec-lt" id="process">
+  <div class="label">How It Works</div>
+  <h2 class="disp">Up and running<br>in <em>30 days.</em></h2>
+  <div class="process-grid">
+    <div class="p-step reveal">
+      <div class="p-n">01</div>
+      <div class="p-week">Week One</div>
+      <div class="p-title">Understand</div>
+      <p class="p-body">Full operational audit — active orders, process gaps, supplier relationships, documentation deficiencies, and the top three operational risks identified immediately.</p>
+    </div>
+    <div class="p-step reveal d1">
+      <div class="p-n">02</div>
+      <div class="p-week">Week Two</div>
+      <div class="p-title">Structure</div>
+      <p class="p-body">Project management platform configured, master order tracker live, client reporting templates created, and risk register established across the portfolio.</p>
+    </div>
+    <div class="p-step reveal d2">
+      <div class="p-n">03</div>
+      <div class="p-week">Week Three</div>
+      <div class="p-title">Deliver</div>
+      <p class="p-body">First client reports issued, priority SOPs in draft, business development outreach underway, and at least one active opportunity in early discussion.</p>
+    </div>
+    <div class="p-step reveal d3">
+      <div class="p-n">04</div>
+      <div class="p-week">Week Four</div>
+      <div class="p-title">Report</div>
+      <p class="p-body">30-day operational health report delivered to leadership. 60-day roadmap confirmed. Month two scope locked and engagement momentum established.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="sec" id="results">
+  <div class="label">Track Record</div>
+  <h2 class="disp">What infrastructure<br><em>produces.</em></h2>
+  <div class="results-grid">
+    <div class="r-card reveal">
+      <div class="r-n">0→16</div>
+      <div class="r-label">PM Department Built from Zero</div>
+      <p class="r-desc">Built a project management department from scratch to a team of 16 at a multi-site, ISO-certified transformer manufacturer — systems, SOPs, AI automation, and leadership infrastructure included.</p>
+    </div>
+    <div class="r-card reveal d1">
+      <div class="r-n">ISO</div>
+      <div class="r-label">Certified Quality Management</div>
+      <p class="r-desc">Developed and implemented ISO 9001:2015-aligned quality management systems, SOP libraries, and document control infrastructure supporting audit certification and ongoing compliance.</p>
+    </div>
+    <div class="r-card reveal d2">
+      <div class="r-n">30d</div>
+      <div class="r-label">Committed First Deliverable</div>
+      <p class="r-desc">Configured PM system, qualified prospects identified, and at least one active opportunity in discussion — committed and delivered in the first 30 days of every engagement.</p>
+    </div>
+  </div>
+  <div class="results-img-row">
+    <div class="rim reveal"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80" alt="Operations"></div>
+    <div class="rim reveal d1"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop&q=80" alt="Team"></div>
+    <div class="rim reveal d2"><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&auto=format&fit=crop&q=80" alt="Technology"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta" id="contact">
+  <div class="cta-img">
+    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&auto=format&fit=crop&q=80" alt="Professional">
+  </div>
+  <div class="cta-body">
+    <div class="label">Next Step</div>
+    <h2 class="disp">Ready to build<br>the <em>infrastructure.</em></h2>
+    <p>Retainer-based engagements — no hourly billing, no scope-creep surprises. OPO is ready to start within five business days of execution.</p>
+    <div>
+      <div class="cta-name">Mariah Feser, PMP</div>
+      <div class="cta-meta">Founder &amp; Principal — Owner Project Office</div>
+      <div class="cta-email">info@ownerprojectoffice.com</div>
+      <div class="cta-meta" style="margin-top:2px;">ownerprojectoffice.com &nbsp;·&nbsp; Vancouver, BC</div>
+    </div>
+    <a class="btn-dark" href="mailto:info@ownerprojectoffice.com">Get in Touch</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">Owner Project Office</div>
+  <div class="f-mid">Fractional PMO &amp; Organizational Process Consulting</div>
+  <div class="f-url">ownerprojectoffice.com</div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+const obs = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
 </body>
 </html>
