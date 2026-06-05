@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Owner Project Office - Fractional PMO & Process Consulting</title>
+<title>Owner Project Office | PMO, Process Optimization and Owner Representation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
@@ -13,11 +13,11 @@
   --charcoal:#1c1c1e;
   --charcoal2:#252527;
   --charcoal3:#2f2f32;
-  --surface:#333336;
   --accent:#a8c8e8;
   --accent-dk:#7aafd4;
   --white:#ffffff;
   --off:#f2f1ef;
+  --ink:#111111;
   --muted:#8a8a8e;
   --rule:rgba(255,255,255,0.08);
   --rule-lt:#e0dedd;
@@ -28,7 +28,7 @@
 html{font-size:16px;scroll-behavior:smooth;}
 body{background:var(--charcoal);color:var(--white);font-family:var(--sans);font-weight:400;overflow-x:hidden;}
 
-/* ── NAV ── */
+/* NAV */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   padding:0 3.5rem;height:72px;
@@ -36,395 +36,191 @@ body{background:var(--charcoal);color:var(--white);font-family:var(--sans);font-
   transition:background 0.4s var(--ease);
 }
 .nav.scrolled{background:rgba(28,28,30,0.97);border-bottom:1px solid var(--rule);}
-.nav-logo{
-  font-family:var(--serif);font-size:21px;font-weight:600;
-  color:var(--white);text-decoration:none;letter-spacing:0.01em;
-  display:flex;align-items:center;gap:12px;
-}
+.nav-logo{font-family:var(--serif);font-size:21px;font-weight:600;color:var(--white);text-decoration:none;letter-spacing:0.01em;display:flex;align-items:center;gap:12px;}
 .nav-logo-pipe{width:1px;height:20px;background:var(--rule);flex-shrink:0;}
-.nav-logo-sub{font-family:var(--sans);font-size:10.5px;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);}
+.nav-logo-sub{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);}
 .nav-links{display:flex;align-items:center;gap:2.25rem;list-style:none;}
 .nav-links a{font-family:var(--sans);font-size:13px;font-weight:400;color:var(--muted);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s;}
 .nav-links a:hover{color:var(--white);}
-.nav-cta{
-  font-family:var(--sans);font-size:12px;font-weight:600;
-  letter-spacing:0.1em;text-transform:uppercase;
-  background:var(--accent);color:var(--charcoal);
-  padding:10px 24px;text-decoration:none;
-  transition:background 0.2s,transform 0.2s;
-}
+.nav-cta{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;background:var(--accent);color:var(--charcoal);padding:10px 24px;text-decoration:none;transition:background 0.2s;}
 .nav-cta:hover{background:var(--accent-dk);}
 
-/* ── HERO ── */
-.hero{
-  min-height:100vh;display:grid;
-  grid-template-columns:1fr 1fr;
-  position:relative;overflow:hidden;
-}
-.hero-left{
-  padding:10rem 4rem 6rem;
-  display:flex;flex-direction:column;justify-content:flex-end;
-  position:relative;z-index:1;
-}
-.hero-eyebrow{
-  font-family:var(--sans);font-size:11px;font-weight:500;
-  letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:2rem;
-  display:flex;align-items:center;gap:12px;
-}
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
+.hero-left{padding:10rem 4rem 5rem;display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:1;}
+.hero-eyebrow{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;display:flex;align-items:center;gap:12px;}
 .hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--accent);}
-.hero h1{
-  font-family:var(--serif);
-  font-size:clamp(52px,6.5vw,88px);
-  font-weight:700;line-height:1.04;
-  letter-spacing:-0.02em;color:var(--white);
-  margin-bottom:2rem;
-}
+.hero h1{font-family:var(--serif);font-size:clamp(48px,6vw,84px);font-weight:700;line-height:1.04;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.75rem;}
 .hero h1 em{font-style:italic;color:var(--accent);}
-.hero-body{
-  font-size:15px;font-weight:300;line-height:1.85;
-  color:var(--muted);max-width:440px;margin-bottom:3rem;
-}
-.hero-actions{display:flex;align-items:center;gap:1.75rem;flex-wrap:wrap;margin-bottom:3rem;}
-.btn-primary{
-  font-family:var(--sans);font-size:12px;font-weight:600;
-  letter-spacing:0.1em;text-transform:uppercase;
-  background:var(--accent);color:var(--charcoal);
-  padding:14px 32px;text-decoration:none;
-  transition:background 0.2s;display:inline-block;
-}
+.hero-body{font-size:15px;font-weight:300;line-height:1.85;color:var(--muted);max-width:440px;margin-bottom:2.5rem;}
+.hero-actions{display:flex;align-items:center;gap:1.75rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.btn-primary{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;background:var(--accent);color:var(--charcoal);padding:14px 32px;text-decoration:none;transition:background 0.2s;display:inline-block;}
 .btn-primary:hover{background:var(--accent-dk);}
-.btn-text{
-  font-family:var(--sans);font-size:13px;font-weight:400;
-  color:var(--muted);text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:2px;
-  transition:color 0.2s,border-color 0.2s;
-}
+.btn-text{font-family:var(--sans);font-size:13px;font-weight:400;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:2px;transition:color 0.2s,border-color 0.2s;}
 .btn-text:hover{color:var(--white);border-color:rgba(255,255,255,0.4);}
-.hero-right{
-  position:relative;overflow:hidden;
-}
-.hero-right img{
-  width:100%;height:100%;object-fit:cover;display:block;
-  filter:brightness(0.55) contrast(1.1);
-}
-.hero-right::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to right,var(--charcoal) 0%,transparent 40%);
-}
-.hero-stat-strip{
-  display:flex;gap:3rem;
-  padding-top:2rem;
-  border-top:1px solid var(--rule);
-}
-.h-stat-n{font-family:var(--serif);font-size:40px;font-weight:700;color:var(--white);line-height:1;}
-.h-stat-l{font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+.hero-stat-strip{display:flex;gap:3rem;padding-top:2rem;border-top:1px solid var(--rule);}
+.h-stat-n{font-family:var(--serif);font-size:36px;font-weight:700;color:var(--white);line-height:1;}
+.h-stat-l{font-size:10px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+.hero-right{position:relative;overflow:hidden;}
+.hero-right img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.5) contrast(1.1);}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--charcoal) 0%,transparent 40%);}
 
-/* ── TICKER ── */
+/* TICKER */
 .ticker{background:var(--accent);padding:12px 0;overflow:hidden;}
-.ticker-track{display:flex;white-space:nowrap;animation:tick 30s linear infinite;}
-.ticker-track span{
-  font-family:var(--sans);font-size:11px;font-weight:600;
-  letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--charcoal);padding:0 2rem;
-  border-right:1px solid rgba(28,28,30,0.2);
-}
+.ticker-track{display:flex;white-space:nowrap;animation:tick 32s linear infinite;}
+.ticker-track span{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--charcoal);padding:0 2rem;border-right:1px solid rgba(28,28,30,0.18);}
 @keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-/* ── SHARED ── */
+/* SHARED */
 .sec{padding:7rem 4rem;}
-.sec-lt{padding:7rem 4rem;background:var(--off);color:var(--charcoal);}
-.label{
-  font-family:var(--sans);font-size:11px;font-weight:500;
-  letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:1.25rem;
-  display:flex;align-items:center;gap:10px;
-}
-.sec-lt .label{color:var(--charcoal);opacity:0.45;}
-.label::before{content:'';width:18px;height:1px;background:currentColor;}
-h2.disp{
-  font-family:var(--serif);
-  font-size:clamp(40px,5vw,68px);
-  font-weight:700;line-height:1.04;letter-spacing:-0.02em;
-  color:var(--white);margin-bottom:1.5rem;
-}
-.sec-lt h2.disp{color:var(--charcoal);}
+.sec-lt{padding:7rem 4rem;background:var(--off);color:var(--ink);}
+.lbl{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px;}
+.lbl::before{content:'';width:18px;height:1px;background:var(--accent);}
+.sec-lt .lbl{color:var(--charcoal);opacity:0.4;}
+.sec-lt .lbl::before{background:var(--charcoal);}
+h2.disp{font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:700;line-height:1.04;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.5rem;}
+.sec-lt h2.disp{color:var(--ink);}
 h2.disp em{font-style:italic;color:var(--accent);}
-.sec-lt h2.disp em{color:var(--charcoal);opacity:0.35;}
+.sec-lt h2.disp em{color:var(--ink);opacity:0.3;}
 .body-p{font-size:15px;font-weight:300;line-height:1.85;color:var(--muted);max-width:560px;}
 .sec-lt .body-p{color:#555;}
 
-/* ── ABOUT ── */
-.about-wrap{
-  display:grid;grid-template-columns:7fr 5fr;
-  gap:6rem;align-items:center;margin-top:4rem;
-}
-.about-left{}
-.about-quote{
-  font-family:var(--serif);font-size:clamp(20px,2.5vw,26px);
-  font-style:italic;line-height:1.5;color:var(--white);
-  border-left:3px solid var(--accent);padding-left:1.75rem;
-  margin:2.5rem 0;
-}
+/* ABOUT */
+.about-wrap{display:grid;grid-template-columns:7fr 5fr;gap:6rem;align-items:center;margin-top:4rem;}
+.about-quote{font-family:var(--serif);font-size:clamp(19px,2.2vw,24px);font-style:italic;line-height:1.55;color:var(--white);border-left:3px solid var(--accent);padding-left:1.75rem;margin:2.5rem 0;}
 .about-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:2rem;}
-.pill{
-  font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
-  padding:7px 16px;border:1px solid var(--rule);color:var(--muted);
-  transition:border-color 0.2s,color 0.2s;
-}
+.pill{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:7px 16px;border:1px solid var(--rule);color:var(--muted);transition:border-color 0.2s,color 0.2s;}
 .pill:hover{border-color:var(--accent);color:var(--accent);}
 .pill.hi{border-color:var(--accent);color:var(--accent);}
 .about-img{position:relative;border-radius:2px;overflow:hidden;}
-.about-img img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;filter:brightness(0.75);}
-.about-img-tag{
-  position:absolute;bottom:1.5rem;left:1.5rem;
-  background:var(--accent);color:var(--charcoal);
-  font-family:var(--sans);font-size:11px;font-weight:600;
-  letter-spacing:0.12em;text-transform:uppercase;
-  padding:8px 16px;
-}
+.about-img img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;filter:brightness(0.72);}
+.about-img-tag{position:absolute;bottom:1.5rem;left:1.5rem;background:var(--accent);color:var(--charcoal);font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:8px 16px;}
 
-/* ── SERVICES ── */
-.svc-intro{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:5rem;align-items:end;margin-bottom:4rem;
-}
-.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--rule);}
-.svc-card{
-  background:var(--charcoal2);padding:3rem 2.5rem;
-  position:relative;overflow:hidden;
-  transition:background 0.3s var(--ease);cursor:default;
-}
-.svc-card::before{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
-  background:var(--accent);transform:scaleX(0);transform-origin:left;
-  transition:transform 0.4s var(--ease);
-}
-.svc-card:hover{background:var(--charcoal3);}
-.svc-card:hover::before{transform:scaleX(1);}
-.svc-n{
-  font-family:var(--serif);font-size:64px;font-weight:700;
-  color:var(--rule);line-height:1;margin-bottom:1.5rem;
-  transition:color 0.3s;
-}
-.svc-card:hover .svc-n{color:rgba(168,200,232,0.15);}
-.svc-tag{
-  font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:0.75rem;display:block;
-}
-.svc-title{
-  font-family:var(--serif);font-size:24px;font-weight:600;
-  color:var(--white);margin-bottom:0.75rem;line-height:1.2;
-}
-.svc-desc{font-size:13px;font-weight:300;line-height:1.8;color:var(--muted);margin-bottom:1.5rem;}
-.svc-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;}
-.svc-list li{
-  font-size:12.5px;font-weight:400;color:#777;
-  padding-left:14px;position:relative;line-height:1.5;
-}
-.svc-list li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:1px;background:#555;}
+/* PILLARS */
+.pillars-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:4rem;}
+.pillars-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.pillar-card{position:relative;overflow:hidden;}
+.pillar-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;filter:brightness(0.45) contrast(1.1);}
+.pillar-body{background:var(--charcoal2);padding:2.5rem;border:1px solid var(--rule);border-top:none;}
+.pillar-tag{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.75rem;}
+.pillar-num{font-family:var(--serif);font-size:52px;font-weight:700;color:rgba(255,255,255,0.06);position:absolute;top:1rem;right:1.5rem;line-height:1;}
+.pillar-title{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--white);margin-bottom:0.75rem;line-height:1.2;}
+.pillar-desc{font-size:13px;font-weight:300;line-height:1.8;color:var(--muted);margin-bottom:1.5rem;}
+.pillar-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;}
+.pillar-list li{font-size:12.5px;font-weight:400;color:#777;padding-left:14px;position:relative;line-height:1.5;}
+.pillar-list li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:1px;background:var(--accent);}
 
-/* ── FULL BLEED ── */
-.fb{position:relative;height:520px;overflow:hidden;}
-.fb img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.4) contrast(1.1);}
-.fb-inner{
-  position:absolute;inset:0;display:flex;align-items:center;
-  padding:0 5rem;
-}
-.fb-text{max-width:800px;}
-.fb-text p{
-  font-family:var(--serif);font-size:clamp(28px,4vw,50px);
-  font-style:italic;font-weight:400;line-height:1.3;color:var(--white);
-  margin-bottom:1.5rem;
-}
-.fb-text cite{
-  font-family:var(--sans);font-size:12px;font-weight:400;
-  letter-spacing:0.16em;text-transform:uppercase;
-  color:rgba(255,255,255,0.35);font-style:normal;
-}
-.fb-accent{
-  width:40px;height:3px;background:var(--accent);margin-bottom:2rem;
-}
+/* FULL BLEED */
+.fb{position:relative;height:500px;overflow:hidden;}
+.fb img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.38) contrast(1.15);}
+.fb-inner{position:absolute;inset:0;display:flex;align-items:center;padding:0 5rem;}
+.fb-text{max-width:820px;}
+.fb-accent{width:40px;height:3px;background:var(--accent);margin-bottom:2rem;}
+.fb-text p{font-family:var(--serif);font-size:clamp(26px,4vw,48px);font-style:italic;font-weight:400;line-height:1.35;color:var(--white);margin-bottom:1.5rem;}
+.fb-text cite{font-family:var(--sans);font-size:12px;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);font-style:normal;}
 
-/* ── METHODOLOGY ── */
-.method-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:0;margin-top:4rem;
-}
-.method-card{
-  padding:2.5rem 2rem;
-  border-right:1px solid var(--rule-lt);
-  border-bottom:1px solid var(--rule-lt);
-  transition:background 0.25s;
-}
-.method-card:hover{background:var(--charcoal);color:var(--white);}
-.method-card:hover .m-num,.method-card:hover .m-title{color:var(--white);}
-.method-card:hover .m-body{color:var(--muted);}
-.method-card:hover .m-tag{color:var(--accent);border-color:rgba(168,200,232,0.3);}
-.method-card:nth-child(3n){border-right:none;}
-.method-card:nth-child(n+4){border-bottom:none;}
-.m-num{
-  font-family:var(--serif);font-size:56px;font-weight:700;
-  color:var(--rule-lt);line-height:1;margin-bottom:1.25rem;
-  transition:color 0.25s;
-}
-.m-tag{
-  font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;
-  color:#777;border:1px solid var(--rule-lt);
-  padding:4px 12px;display:inline-block;margin-bottom:0.75rem;
-  transition:color 0.25s,border-color 0.25s;
-}
-.m-title{
-  font-family:var(--serif);font-size:22px;font-weight:600;
-  color:var(--charcoal);margin-bottom:0.75rem;line-height:1.2;
-  transition:color 0.25s;
-}
-.m-body{font-size:13px;font-weight:300;line-height:1.8;color:#666;transition:color 0.25s;}
+/* OWNER REP DEEP DIVE */
+.ownerrep{background:var(--charcoal2);}
+.ownerrep-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:4rem;}
+.ownerrep-img{position:relative;overflow:hidden;border-radius:2px;}
+.ownerrep-img img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;filter:brightness(0.65);}
+.ownerrep-img-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(28,28,30,0.95),transparent);padding:2rem 1.75rem 1.75rem;}
+.ownerrep-img-cap p{font-size:13px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.65;}
+.ownerrep-right{}
+.ownerrep-items{display:flex;flex-direction:column;gap:0;margin-top:2rem;}
+.ownerrep-item{display:grid;grid-template-columns:48px 1fr;gap:1.25rem;padding:1.5rem 0;border-bottom:1px solid var(--rule);}
+.ownerrep-item:first-child{border-top:1px solid var(--rule);}
+.ownerrep-n{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--rule);line-height:1;padding-top:2px;transition:color 0.2s;}
+.ownerrep-item:hover .ownerrep-n{color:var(--accent);}
+.ownerrep-name{font-size:14px;font-weight:500;color:var(--white);margin-bottom:4px;}
+.ownerrep-desc{font-size:12.5px;font-weight:300;line-height:1.65;color:var(--muted);}
 
-/* ── INDUSTRIES ── */
-.ind-wrap{
-  display:grid;grid-template-columns:5fr 7fr;
-  gap:6rem;align-items:start;margin-top:4rem;
-}
-.ind-img{position:relative;overflow:hidden;border-radius:2px;}
-.ind-img img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;filter:brightness(0.65);}
-.ind-img-cap{
-  position:absolute;bottom:0;left:0;right:0;
-  background:linear-gradient(to top,rgba(28,28,30,0.95),transparent);
-  padding:2rem 1.75rem 1.75rem;
-}
-.ind-img-cap p{font-size:13px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.65;}
-.ind-list{display:flex;flex-direction:column;}
-.ind-item{
-  display:grid;grid-template-columns:52px 1fr;gap:1.5rem;
-  padding:1.5rem 0;border-bottom:1px solid var(--rule);
-  transition:background 0.2s;
-}
-.ind-item:first-child{border-top:1px solid var(--rule);}
-.ind-n{
-  font-family:var(--serif);font-size:30px;font-weight:700;
-  color:var(--rule);line-height:1;padding-top:2px;
-  transition:color 0.2s;
-}
-.ind-item:hover .ind-n{color:var(--accent);}
-.ind-name{font-size:15px;font-weight:500;color:var(--white);margin-bottom:4px;}
-.ind-desc{font-size:13px;font-weight:300;line-height:1.65;color:var(--muted);}
+/* INDUSTRIES */
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule-lt);margin-top:3rem;}
+.ind-cell{padding:1.75rem 1.5rem;border-right:1px solid var(--rule-lt);border-bottom:1px solid var(--rule-lt);}
+.ind-cell:nth-child(3n){border-right:none;}
+.ind-cell:nth-child(n+4){border-bottom:none;}
+.ind-icon{width:38px;height:38px;background:var(--charcoal);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:18px;}
+.ind-name{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:6px;}
+.ind-desc{font-size:12px;font-weight:300;line-height:1.65;color:#666;}
 
-/* ── PROCESS ── */
-.process-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:0;margin-top:4.5rem;
-}
-.p-step{
-  padding:0 2.5rem 0 0;
-  border-right:1px solid var(--rule-lt);
-}
+/* PROCESS */
+.process{background:var(--charcoal);}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4.5rem;border-top:1px solid var(--rule);}
+.p-step{padding:2.5rem 2.5rem 2.5rem 0;border-right:1px solid var(--rule);}
 .p-step:last-child{border-right:none;padding-right:0;}
 .p-step:not(:first-child){padding-left:2.5rem;}
-.p-n{
-  font-family:var(--serif);font-size:56px;font-weight:700;
-  color:rgba(28,28,30,0.15);line-height:1;margin-bottom:1.5rem;
-}
-.p-week{
-  font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--charcoal);opacity:0.4;margin-bottom:0.6rem;
-}
-.p-title{font-size:16px;font-weight:600;color:var(--charcoal);margin-bottom:0.6rem;}
-.p-body{font-size:13px;font-weight:300;line-height:1.75;color:#666;}
+.p-n{font-family:var(--serif);font-size:52px;font-weight:700;color:rgba(255,255,255,0.05);line-height:1;margin-bottom:1.5rem;}
+.p-tag{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;display:block;}
+.p-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:0.6rem;}
+.p-body{font-size:12.5px;font-weight:300;line-height:1.75;color:var(--muted);}
 
-/* ── RESULTS ── */
-.results-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:2px;background:var(--rule);margin-top:4rem;
-}
+/* RESULTS */
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule);margin-top:4rem;}
 .r-card{background:var(--charcoal2);padding:2.5rem;}
-.r-n{
-  font-family:var(--serif);font-size:60px;font-weight:700;
-  color:var(--accent);line-height:1;margin-bottom:0.5rem;
-}
+.r-n{font-family:var(--serif);font-size:56px;font-weight:700;color:var(--accent);line-height:1;margin-bottom:0.5rem;}
 .r-label{font-size:13px;font-weight:500;color:var(--white);margin-bottom:0.5rem;}
 .r-desc{font-size:13px;font-weight:300;line-height:1.7;color:var(--muted);}
-.results-img-row{
-  display:grid;grid-template-columns:2fr 1fr 1fr;
-  gap:2px;margin-top:2px;height:280px;background:var(--rule);
-}
-.rim img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.7);}
+.results-img-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2px;margin-top:2px;height:260px;background:var(--rule);}
+.rim img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.65);}
 
-/* ── CTA ── */
-.cta{
-  display:grid;grid-template-columns:1fr 1fr;
-  min-height:500px;
-}
+/* CTA */
+.cta{display:grid;grid-template-columns:1fr 1fr;min-height:500px;}
 .cta-img{position:relative;overflow:hidden;}
-.cta-img img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.5) contrast(1.1);}
+.cta-img img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.45) contrast(1.1);}
 .cta-img::after{content:'';position:absolute;inset:0;background:rgba(28,28,30,0.3);}
-.cta-body{
-  background:var(--accent);
-  padding:5rem;
-  display:flex;flex-direction:column;justify-content:center;gap:1.5rem;
-}
-.cta-body .label{color:var(--charcoal);opacity:0.5;}
-.cta-body .label::before{background:var(--charcoal);}
+.cta-body{background:var(--accent);padding:5rem;display:flex;flex-direction:column;justify-content:center;gap:1.5rem;}
+.cta-body .lbl{color:var(--charcoal);opacity:0.5;}
+.cta-body .lbl::before{background:var(--charcoal);}
 .cta-body h2.disp{color:var(--charcoal);}
-.cta-body h2.disp em{color:var(--charcoal);opacity:0.35;}
+.cta-body h2.disp em{color:var(--charcoal);opacity:0.3;}
 .cta-body p{font-size:15px;font-weight:300;line-height:1.8;color:rgba(28,28,30,0.65);}
 .cta-name{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--charcoal);margin-bottom:3px;}
 .cta-meta{font-size:13px;font-weight:300;color:rgba(28,28,30,0.55);margin-bottom:2px;}
 .cta-email{font-size:14px;font-weight:500;color:var(--charcoal);}
-.btn-dark{
-  font-family:var(--sans);font-size:12px;font-weight:600;
-  letter-spacing:0.1em;text-transform:uppercase;
-  background:var(--charcoal);color:var(--accent);
-  padding:14px 32px;text-decoration:none;
-  align-self:flex-start;transition:background 0.2s;
-}
+.btn-dark{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;background:var(--charcoal);color:var(--accent);padding:14px 32px;text-decoration:none;align-self:flex-start;transition:background 0.2s;}
 .btn-dark:hover{background:var(--charcoal2);}
 
-/* ── FOOTER ── */
-footer{
-  background:var(--charcoal2);
-  padding:2rem 4rem;
-  display:flex;align-items:center;justify-content:space-between;
-  border-top:1px solid var(--rule);
-}
+/* FOOTER */
+footer{background:var(--charcoal2);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--rule);}
 .f-logo{font-family:var(--serif);font-size:18px;font-weight:600;color:rgba(255,255,255,0.25);}
 .f-mid{font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.15);}
 .f-url{font-size:11px;font-weight:400;color:rgba(255,255,255,0.2);letter-spacing:0.06em;}
 
-/* ── REVEAL ── */
+/* REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.75s var(--ease),transform 0.75s var(--ease);}
 .reveal.visible{opacity:1;transform:none;}
 .d1{transition-delay:0.1s;}.d2{transition-delay:0.2s;}.d3{transition-delay:0.3s;}.d4{transition-delay:0.4s;}
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media(max-width:960px){
   .nav{padding:0 1.5rem;}
   .nav-links{display:none;}
   .hero{grid-template-columns:1fr;min-height:auto;}
   .hero-left{padding:8rem 1.5rem 4rem;}
-  .hero-right{height:340px;}
-  .hero-stat-strip{left:1.5rem;bottom:1.5rem;gap:2rem;}
-  .sec,.sec-lt{padding:4rem 1.5rem;}
-  .about-wrap,.svc-intro,.ind-wrap,.cta{grid-template-columns:1fr;}
-  .svc-grid,.method-grid,.results-grid{grid-template-columns:1fr;}
-  .svc-grid,.results-grid{background:transparent;gap:1rem;}
-  .svc-card,.r-card{border:1px solid var(--rule);}
-  .method-card{border:1px solid var(--rule-lt);}
-  .process-grid{grid-template-columns:1fr 1fr;gap:2rem;}
-  .p-step{border:none;padding:0!important;}
+  .hero-right{height:320px;}
+  .sec,.sec-lt,.process{padding:4rem 1.5rem;}
+  .about-wrap,.pillars-intro,.pillars-grid,.ownerrep-grid,.cta{grid-template-columns:1fr;}
+  .ind-grid{grid-template-columns:1fr 1fr;}
+  .ind-cell:nth-child(2n){border-right:none;}
+  .ind-cell:nth-child(n+5){border-bottom:none;}
+  .results-grid{grid-template-columns:1fr;}
   .results-img-row{grid-template-columns:1fr 1fr;height:auto;}
   .results-img-row .rim:first-child{grid-column:1/3;}
-  .results-img-row .rim img,.results-img-row .rim:first-child img{height:220px;}
+  .results-img-row .rim img,.results-img-row .rim:first-child img{height:200px;}
+  .process-grid{grid-template-columns:1fr 1fr;gap:2rem;}
+  .p-step{border:none;padding:0!important;}
   .cta-img{height:280px;}
   .cta-body{padding:3rem 1.5rem;}
-  .fb{height:auto;padding:5rem 1.5rem;}
-  .fb img{display:none;}
-  .fb-inner{position:relative;padding:0;}
+  .fb{height:auto;min-height:320px;}
+  .fb-inner{padding:3rem 1.5rem;}
   footer{padding:1.5rem;flex-direction:column;gap:0.5rem;text-align:center;}
 }
 @media(max-width:600px){
   .process-grid{grid-template-columns:1fr;}
-  .h-stat-n{font-size:28px;}
+  .ind-grid{grid-template-columns:1fr;}
+  .ind-cell{border-right:none;}
+  .ind-cell:nth-child(n+6){border-bottom:none;}
 }
 </style>
 </head>
@@ -438,8 +234,8 @@ footer{
     <span class="nav-logo-sub">Owner Project Office</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#pillars">Services</a></li>
+    <li><a href="#owner-rep">Owner Rep</a></li>
     <li><a href="#industries">Industries</a></li>
     <li><a href="#process">Process</a></li>
   </ul>
@@ -449,17 +245,17 @@ footer{
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-left">
-    <div class="hero-eyebrow">Fractional PMO &amp; Process Consulting</div>
-    <h1>Industrial<br>Operations,<br><em>Scaled.</em></h1>
-    <p class="hero-body">OPO embeds into your business as an project management, operational and business development process improvement partner building the systems, SOPs, and pipeline your company needs to grow without breaking.</p>
+    <div class="hero-eyebrow">PMO, Process and Owner Representation</div>
+    <h1>Industrial<br>Projects<br><em>Done Right.</em></h1>
+    <p class="hero-body">OPO partners with industrial companies as a fractional PMO, process optimization consultant, and owner's representative on transformer, electrical infrastructure, and capital equipment projects.</p>
     <div class="hero-actions">
       <a class="btn-primary" href="mailto:info@ownerprojectoffice.com">Start the Conversation</a>
-      <a class="btn-text" href="#services">Explore services</a>
+      <a class="btn-text" href="#pillars">Explore our services</a>
     </div>
     <div class="hero-stat-strip">
       <div>
         <div class="h-stat-n">Team</div>
-        <div class="h-stat-l">Building Excellence</div>
+        <div class="h-stat-l">Excellence</div>
       </div>
       <div>
         <div class="h-stat-n">ISO</div>
@@ -467,20 +263,20 @@ footer{
       </div>
       <div>
         <div class="h-stat-n">30d</div>
-        <div class="h-stat-l">First Deliverable</div>
+        <div class="h-stat-l">Guaranteed Deliverable</div>
       </div>
     </div>
   </div>
   <div class="hero-right">
-    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=900&auto=format&fit=crop&q=80" alt="Industrial operations" loading="eager">
+    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900&auto=format&fit=crop&q=80" alt="Electrical substation" loading="eager">
   </div>
 </section>
 
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span>PMP Certified</span><span>SOP Development</span><span>ISO 9001:2015</span><span>Lean Six Sigma</span><span>AI Automation</span><span>Business Development</span><span>Document Control</span><span>Industrial Sector</span><span>Project Governance</span><span>Fractional Model</span><span>North America</span>
-    <span>PMP Certified</span><span>SOP Development</span><span>ISO 9001:2015</span><span>Lean Six Sigma</span><span>AI Automation</span><span>Business Development</span><span>Document Control</span><span>Industrial Sector</span><span>Project Governance</span><span>Fractional Model</span><span>North America</span>
+    <span>PMP Certified</span><span>SOP Development</span><span>ISO 9001:2015</span><span>Lean Six Sigma</span><span>Owner Representation</span><span>Transformer Projects</span><span>Process Optimization</span><span>Electrical Infrastructure</span><span>FAT Witnessing</span><span>Document Control</span><span>Fractional PMO</span><span>Vancouver BC</span>
+    <span>PMP Certified</span><span>SOP Development</span><span>ISO 9001:2015</span><span>Lean Six Sigma</span><span>Owner Representation</span><span>Transformer Projects</span><span>Process Optimization</span><span>Electrical Infrastructure</span><span>FAT Witnessing</span><span>Document Control</span><span>Fractional PMO</span><span>Vancouver BC</span>
   </div>
 </div>
 
@@ -488,258 +284,263 @@ footer{
 <section class="sec" id="about">
   <div class="about-wrap">
     <div class="about-left reveal">
-      <div class="label">About OPO</div>
-      <h2 class="disp">Built from<br>the inside <em>out.</em></h2>
-      <p class="body-p">Owner Project Office was founded by Mariah Feser, PMP a project management and operational systems leader who has built project management departments from zero at a multi-site industrial manufacturer, implementing ISO-aligned SOPs, AI process automation, and cross-functional infrastructure along the way.</p>
-      <div class="about-quote">"The gap is rarely the product. It's the operational infrastructure and pipeline needed to scale it reliably."</div>
-      <p class="body-p" style="font-size:14px;">OPO commercializes that operational expertise bringing the rigor of a full in-house PMO to industrial companies that need the function without the full-time overhead. Embedded. Built around measurable outcomes.</p>
+      <div class="lbl">About OPO</div>
+      <h2 class="disp">Built from the<br>inside <em>out.</em></h2>
+      <p class="body-p">Owner Project Office was founded by Mariah Feser, PMP, a project management and operational systems leader who built a PM department from zero at a multi-site, ISO-certified transformer manufacturer. That hands-on experience inside the manufacturing environment is what sets OPO apart.</p>
+      <div class="about-quote">The gap is rarely the product. It is the operational infrastructure and the right representation on the owner's side that determines whether a project succeeds.</div>
+      <p class="body-p" style="font-size:14px;">OPO brings full-stack PMO capability and genuine owner-side representation to industrial companies that need both functions without the overhead of a full in-house team. Retainer-based. Embedded. Built around measurable outcomes.</p>
       <div class="about-pills">
         <span class="pill hi">PMP Certified</span>
         <span class="pill hi">ISO 9001:2015</span>
         <span class="pill hi">Lean Six Sigma</span>
-        
-        
-        <span class="pill hi">AI Automation</span>
-        <span class="pill hi">Industrial Sector</span>
+        <span class="pill">Owner's Rep</span>
+        <span class="pill">Transformer Sector</span>
+        <span class="pill">AI Automation</span>
       </div>
     </div>
     <div class="about-img reveal d2">
-      <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&auto=format&fit=crop&q=80" alt="Operational environment">
-      <div class="about-img-tag">USA · Canada</div>
+      <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&auto=format&fit=crop&q=80" alt="Power transmission infrastructure">
+      <div class="about-img-tag">Vancouver, BC · Canada</div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="sec" id="services" style="padding-top:0;">
-  <div class="svc-intro">
+<!-- PILLARS -->
+<section class="sec" id="pillars" style="padding-top:0;">
+  <div class="pillars-intro">
     <div class="reveal">
-      <div class="label">What We Deliver</div>
-      <h2 class="disp">Four pillars.<br>One <em>integrated</em><br>engagement.</h2>
+      <div class="lbl">Two Pillars</div>
+      <h2 class="disp">One integrated<br><em>engagement.</em></h2>
     </div>
     <div class="reveal d1">
-      <p class="body-p">OPO is not a staffing solution or a firm that produces recommendations. OPO embeds, implements, and executes leaving behind operational infrastructure that functions long after the engagement ends.</p>
+      <p class="body-p">OPO operates across two distinct practice areas that work together. Whether your business needs operational infrastructure, project delivery expertise, or a trusted representative sitting on the owner's side of a major equipment purchase, OPO brings both disciplines under one engagement.</p>
     </div>
   </div>
-  <div class="svc-grid">
-    <div class="svc-card reveal">
-      <div class="svc-n">01</div>
-      <span class="svc-tag">Fractional PMO</span>
-      <div class="svc-title">Program Management Office</div>
-      <p class="svc-desc">Full operational PM infrastructure built and managed as an embedded function - systems, processes, governance, and reporting that scale with your business.</p>
-      <ul class="svc-list">
-        <li>SOP development across all operational functions</li>
-        <li>Platform and software implementation</li>
-        <li>Project tracking, milestone management, client reporting</li>
-        <li>Reviews with leadership</li>
-      </ul>
+
+  <div class="pillars-grid">
+
+    <!-- PILLAR 1 -->
+    <div class="pillar-card reveal">
+      <div style="position:relative;overflow:hidden;">
+        <img class="pillar-img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&auto=format&fit=crop&q=80" alt="PMO process operations">
+        <div class="pillar-num">01</div>
+      </div>
+      <div class="pillar-body">
+        <span class="pillar-tag">Pillar One</span>
+        <div class="pillar-title">PMO and Process Optimization</div>
+        <p class="pillar-desc">OPO embeds into your operations to build the project management infrastructure and process systems your business needs to scale without becoming reactive. This is not advisory work. OPO implements, documents, and operates the function.</p>
+        <ul class="pillar-list">
+          <li>SOP development across sales, order management, supplier communication, QA/QC, shipping, and client handover</li>
+          <li>Project management platform setup, templates, milestone tracking, and client-facing reporting</li>
+          <li>Lean Six Sigma process improvement and waste elimination</li>
+          <li>AI process automation to reduce manual work and improve operational visibility</li>
+          <li>ISO 9001:2015 quality management system development and audit readiness</li>
+          <li>Onboarding documentation, role frameworks, and organizational scaling infrastructure</li>
+          <li>Document control systems and centralized filing for compliance records</li>
+          <li>Monthly operations reviews with leadership on performance and priorities</li>
+        </ul>
+      </div>
     </div>
-    <div class="svc-card reveal d1">
-      <div class="svc-n">02</div>
-      <span class="svc-tag">Business Development</span>
-      <div class="svc-title">Pipeline Building &amp; Deal Management</div>
-      <p class="svc-desc">OPO builds your pipeline identification structure, to pursue, and close new client relationships</p>
-      <ul class="svc-list">
-        <li>Prospect identification and pipeline development system</li>
-        <li>Outreach and relationship-building across sectors</li>
-        <li>Proposal, RFQ support, and contract negotiation</li>
-        <li>End-to-end project delivery</li>
-      </ul>
+
+    <!-- PILLAR 2 -->
+    <div class="pillar-card reveal d1">
+      <div style="position:relative;overflow:hidden;">
+        <img class="pillar-img" src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=900&auto=format&fit=crop&q=80" alt="Transformer manufacturing facility">
+        <div class="pillar-num">02</div>
+      </div>
+      <div class="pillar-body">
+        <span class="pillar-tag">Pillar Two</span>
+        <div class="pillar-title">Owner Representation on Industrial Projects</div>
+        <p class="pillar-desc">OPO acts as the owner's representative on transformer, electrical infrastructure, and capital industrial equipment projects. With direct manufacturing experience from inside a transformer facility, OPO knows what to ask, what to inspect, and where projects break down before they do.</p>
+        <ul class="pillar-list">
+          <li>Pre-purchase scope review, specification alignment, and vendor evaluation</li>
+          <li>Drawing review and engineering submittal management on behalf of the owner</li>
+          <li>Manufacturing oversight and progress monitoring at the supplier facility</li>
+          <li>Factory Acceptance Testing witnessing and documentation</li>
+          <li>Shipping coordination, logistics oversight, and damage risk management</li>
+          <li>Site commissioning oversight and energization support</li>
+          <li>Client-facing project status reporting throughout delivery</li>
+          <li>Warranty period monitoring and issue escalation on behalf of the owner</li>
+        </ul>
+      </div>
     </div>
-    <div class="svc-card reveal d2">
-      <div class="svc-n">03</div>
-      <span class="svc-tag">ISO 9001:2015</span>
-      <div class="svc-title">Quality Management System</div>
-      <p class="svc-desc">Audit-ready QMS design and implementation processes, document control, and corrective action systems built for industrial environments.</p>
-      <ul class="svc-list">
-        <li>Gap analysis against ISO 9001:2015 requirements</li>
-        <li>Process mapping and procedure documentation</li>
-        <li>Internal audit preparation and readiness assessment</li>
-        <li>Ongoing QMS maintenance and continual improvement</li>
-      </ul>
-    </div>
-    <div class="svc-card reveal d3">
-      <div class="svc-n">04</div>
-      <span class="svc-tag">Lean Six Sigma + AI</span>
-      <div class="svc-title">Process Improvement &amp; Automation</div>
-      <p class="svc-desc">DMAIC methodology applied alongside AI tooling for eliminating waste, reducing cycle times, and driving operational efficiency at every level.</p>
-      <ul class="svc-list">
-        <li>Value stream mapping and bottleneck analysis</li>
-        <li>Waste identification and elimination</li>
-        <li>AI tool assessment, selection, and implementation</li>
-        <li>KPI development and performance measurement</li>
-      </ul>
-    </div>
+
   </div>
 </section>
 
-<!-- FULL BLEED -->
+<!-- FULL BLEED QUOTE -->
 <div class="fb">
-  <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?w=1800&auto=format&fit=crop&q=80" alt="Infrastructure">
+  <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?w=1800&auto=format&fit=crop&q=80" alt="High voltage transmission towers">
   <div class="fb-inner">
     <div class="fb-text">
       <div class="fb-accent"></div>
-      <p>"Companies with strong products get stuck because they don't have the operational infrastructure to deliver consistently at scale or the pipeline to fill it."</p>
-      <cite>— Mariah Feser, PMP · Founder &amp; Principal, Owner Project Office</cite>
+      <p>Companies with strong products get stuck because they lack the operational infrastructure to deliver consistently at scale and the right expertise sitting on their side of every major project.</p>
+      <cite>Mariah Feser, PMP · Founder and Principal, Owner Project Office</cite>
     </div>
   </div>
 </div>
 
-<!-- METHODOLOGY -->
-<section class="sec-lt" id="methodology">
-  <div class="label">Methodology</div>
-  <h2 class="disp">Frameworks that<br><em>actually hold.</em></h2>
-  <p class="body-p" style="margin-bottom:0;">OPO integrates globally recognized management frameworks with practical, industrial-grade execution systems that function at scale, not just on paper.</p>
-  <div class="method-grid">
-    <div class="method-card reveal">
-      <div class="m-num">01</div>
-      <div class="m-tag">Project Management</div>
-      <div class="m-title">PMBOK / PMP Framework</div>
-      <p class="m-body">Structured project governance: scope definition, schedule control, risk registers, change management, and stakeholder reporting applied to complex industrial programs with long delivery cycles.</p>
+<!-- OWNER REP DEEP DIVE -->
+<section class="sec ownerrep" id="owner-rep">
+  <div class="lbl">Owner Representation</div>
+  <h2 class="disp">Your interests.<br><em>Protected.</em></h2>
+  <div class="ownerrep-grid">
+    <div class="ownerrep-img reveal">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop&q=80" alt="Industrial waste management operations">
+      <div class="ownerrep-img-cap">
+        <p>OPO brings manufacturer-side knowledge to the owner's table. Having worked inside a transformer production facility, OPO understands what to look for at every stage of a capital equipment project.</p>
+      </div>
     </div>
-    <div class="method-card reveal d1">
-      <div class="m-num">02</div>
-      <div class="m-tag">Quality Management</div>
-      <div class="m-title">ISO 9001:2015 QMS</div>
-      <p class="m-body">Risk-based thinking, process approach, and continual improvement embedded into daily operations. Document control and audit infrastructure built for manufacturing and industrial service environments.</p>
-    </div>
-    <div class="method-card reveal d2">
-      <div class="m-num">03</div>
-      <div class="m-tag">Process Excellence</div>
-      <div class="m-title">Lean Six Sigma DMAIC</div>
-      <p class="m-body">Define, Measure, Analyze, Improve, Control structured problem-solving applied to production bottlenecks, order cycle time, supplier quality, and operational cost reduction at the sigma level.</p>
+    <div class="reveal d1">
+      <p class="body-p" style="margin-bottom:2.5rem;">Most owners purchase complex electrical or industrial equipment without anyone in their corner who truly understands what happens inside the manufacturer's facility. OPO closes that gap by providing experienced, independent oversight from specification through to energization.</p>
+      <div class="ownerrep-items">
+        <div class="ownerrep-item">
+          <div class="ownerrep-n">01</div>
+          <div>
+            <div class="ownerrep-name">Specification and Vendor Selection</div>
+            <p class="ownerrep-desc">OPO reviews technical specifications, assesses vendor proposals, and helps owners select the right supplier based on capability, quality history, and commercial terms rather than price alone.</p>
+          </div>
+        </div>
+        <div class="ownerrep-item">
+          <div class="ownerrep-n">02</div>
+          <div>
+            <div class="ownerrep-name">Manufacturing Oversight and FAT</div>
+            <p class="ownerrep-desc">OPO monitors production milestones, reviews drawing submittals, and witnesses Factory Acceptance Testing to verify the equipment meets specification before it ships. Issues caught at FAT cost a fraction of issues caught in the field.</p>
+          </div>
+        </div>
+        <div class="ownerrep-item">
+          <div class="ownerrep-n">03</div>
+          <div>
+            <div class="ownerrep-name">Delivery and Site Commissioning</div>
+            <p class="ownerrep-desc">OPO coordinates shipping logistics, monitors delivery risk, and provides oversight during site installation and commissioning to ensure the equipment is energized correctly and the project closes cleanly.</p>
+          </div>
+        </div>
+        <div class="ownerrep-item">
+          <div class="ownerrep-n">04</div>
+          <div>
+            <div class="ownerrep-name">Reporting and Issue Escalation</div>
+            <p class="ownerrep-desc">OPO provides structured project status reporting throughout the delivery cycle and escalates non-conformances, schedule delays, or quality concerns directly on the owner's behalf.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- INDUSTRIES -->
-<section class="sec" id="industries">
-  <div class="label">Industries Served</div>
+<section class="sec-lt" id="industries">
+  <div class="lbl">Industries Served</div>
   <h2 class="disp">Built for<br><em>industrial</em> operators.</h2>
-  <div class="ind-wrap">
-    <div class="ind-img reveal">
-      <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&auto=format&fit=crop&q=80" alt="Industrial facility">
-      <div class="ind-img-cap">
-        <p>Deep expertise in power transformer manufacturing, electrical infrastructure, and capital equipment programs with the systems knowledge to manage complex delivery.</p>
-      </div>
+  <p class="body-p" style="margin-bottom:0;">OPO serves companies that operate in physical, high-stakes environments where project complexity is real and operational failures are visible and costly.</p>
+  <div class="ind-grid">
+    <div class="ind-cell">
+      <div class="ind-icon">&#9889;</div>
+      <div class="ind-name">Power Transformers and Electrical Equipment</div>
+      <p class="ind-desc">Custom-engineered distribution and power transformers, switchgear, and associated electrical equipment. OPO has direct manufacturing experience in this sector and understands the full supply chain from design through FAT and energization.</p>
     </div>
-    <div class="reveal d1">
-      <p class="body-p" style="margin-bottom:2.5rem;">OPO is purpose-built for companies that manufacture, build, or operate in physical environments where project complexity is high, delivery stakes are real, and operational failures are visible.</p>
-      <div class="ind-list">
-        <div class="ind-item">
-          <div class="ind-n">01</div>
-          <div>
-            <div class="ind-name">Electrical Infrastructure &amp; Power Equipment</div>
-            <p class="ind-desc">Power transformers, switchgear, substations, and electrical equipment manufacturers navigating custom-engineered delivery and utility-grade project requirements.</p>
-          </div>
-        </div>
-        <div class="ind-item">
-          <div class="ind-n">02</div>
-          <div>
-            <div class="ind-name">Industrial Manufacturing</div>
-            <p class="ind-desc">Operational scaling for growing manufacturers SOPs, quality systems, onboarding frameworks, and cross-functional process design for multi-site environments.</p>
-          </div>
-        </div>
-        <div class="ind-item">
-          <div class="ind-n">03</div>
-          <div>
-            <div class="ind-name">Mining, Oil &amp; Gas</div>
-            <p class="ind-desc">Capital project oversight, equipment procurement, and process design for resource extraction and oilfield services in regulated environments.</p>
-          </div>
-        </div>
-        <div class="ind-item">
-          <div class="ind-n">04</div>
-          <div>
-            <div class="ind-name">EPC &amp; Energy Development</div>
-            <p class="ind-desc">Engineering, procurement, and construction programs RFQ management, contractor coordination, milestone reporting, and owner's representative services across North America.</p>
-          </div>
-        </div>
-        <div class="ind-item">
-          <div class="ind-n">05</div>
-          <div>
-            <div class="ind-name">Industrial Startups &amp; SMEs</div>
-            <p class="ind-desc">Emerging industrial companies that need PMO infrastructure and business development capacity without the overhead of a full internal department.</p>
-          </div>
-        </div>
-      </div>
+    <div class="ind-cell">
+      <div class="ind-icon">&#128268;</div>
+      <div class="ind-name">Electrical Infrastructure and Substations</div>
+      <p class="ind-desc">Substation construction and upgrade projects, transmission infrastructure, and electrical utility capital programs where independent owner representation and structured PM oversight are critical to on-time, on-budget delivery.</p>
+    </div>
+    <div class="ind-cell">
+      <div class="ind-icon">&#127981;</div>
+      <div class="ind-name">Industrial Manufacturing</div>
+      <p class="ind-desc">Growing manufacturers that need PMO infrastructure, ISO-aligned quality systems, and Lean Six Sigma process improvement to scale operations without losing consistency or control as volume increases.</p>
+    </div>
+    <div class="ind-cell">
+      <div class="ind-icon">&#9851;</div>
+      <div class="ind-name">Waste Management and Environmental Services</div>
+      <p class="ind-desc">Waste collection, processing, and environmental services operators that need structured operational frameworks, SOP libraries, equipment procurement oversight, and project management discipline across field and facility operations.</p>
+    </div>
+    <div class="ind-cell">
+      <div class="ind-icon">&#9968;</div>
+      <div class="ind-name">Mining, Oil and Gas</div>
+      <p class="ind-desc">Capital project oversight, equipment procurement representation, and operational process design for resource extraction and oilfield services companies operating in regulated, high-consequence environments.</p>
+    </div>
+    <div class="ind-cell">
+      <div class="ind-icon">&#127970;</div>
+      <div class="ind-name">EPC and Energy Development</div>
+      <p class="ind-desc">Engineering, procurement, and construction programs requiring structured owner-side oversight, RFQ management, contractor coordination, and milestone-based reporting across North American projects.</p>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section class="sec-lt" id="process">
-  <div class="label">How It Works</div>
+<section class="process sec" id="process">
+  <div class="lbl">How It Works</div>
   <h2 class="disp">Up and running<br>in <em>30 days.</em></h2>
+  <p class="body-p" style="margin-bottom:0;">OPO commits to concrete, visible deliverables in the first month. Implemented systems and active progress, not strategy documents.</p>
   <div class="process-grid">
     <div class="p-step reveal">
       <div class="p-n">01</div>
-      <div class="p-week">Week One</div>
+      <span class="p-tag">Week One</span>
       <div class="p-title">Understand</div>
-      <p class="p-body">Begin operational audit of active orders, process gaps, supplier relationships, documentation deficiencies, and the top three operational risks identified immediately.</p>
+      <p class="p-body">Full operational audit covering active orders, process gaps, supplier relationships, and documentation deficiencies. Top three operational risks identified and reported to leadership immediately.</p>
     </div>
     <div class="p-step reveal d1">
       <div class="p-n">02</div>
-      <div class="p-week">Week Two</div>
+      <span class="p-tag">Week Two</span>
       <div class="p-title">Structure</div>
-      <p class="p-body">Project management platforms, master order trackers reviewed, templates started, and risk management system reviewed across the portfolio.</p>
+      <p class="p-body">Project management platform configured and live. Master order or project tracker established. Client reporting templates created. Risk register set up across the active portfolio.</p>
     </div>
     <div class="p-step reveal d2">
       <div class="p-n">03</div>
-      <div class="p-week">Week Three</div>
+      <span class="p-tag">Week Three</span>
       <div class="p-title">Deliver</div>
-      <p class="p-body">First reports issued, priority SOPs in draft, and business development structure review.</p>
+      <p class="p-body">First client-facing reports issued. Priority SOPs in draft. Owner representation scope confirmed on active projects. Supplier touchpoints mapped and initial contact made where applicable.</p>
     </div>
     <div class="p-step reveal d3">
       <div class="p-n">04</div>
-      <div class="p-week">Week Four</div>
+      <span class="p-tag">Week Four</span>
       <div class="p-title">Report</div>
-      <p class="p-body">30-day operational health report delivered to leadership. Roadmap confirmed. Next scope locked and momentum established.</p>
+      <p class="p-body">30-day operational health report delivered to leadership. 60-day roadmap confirmed. Month two scope locked. Engagement momentum established across both practice areas.</p>
     </div>
   </div>
 </section>
 
 <!-- RESULTS -->
-<section class="sec" id="results">
-  <div class="label">Track Record</div>
-  <h2 class="disp">What infrastructure<br><em>produces.</em></h2>
+<section class="sec" id="results" style="padding-top:0;margin-top:0;">
+  <div class="lbl">Track Record</div>
+  <h2 class="disp">What experience<br><em>produces.</em></h2>
   <div class="results-grid">
     <div class="r-card reveal">
-      <div class="r-n">Team Excellence</div>
+      <div class="r-n">0 to 16</div>
       <div class="r-label">PM Department Built from Zero</div>
-      <p class="r-desc">Experience building project management department from scratch to full team at a multi-site, ISO-certified transformer manufacturer with systems, SOPs, AI automation, and leadership infrastructure included.</p>
+      <p class="r-desc">Built a project management department from scratch to a team of 16 at a multi-site, ISO-certified transformer manufacturer. This included systems design, SOP development, AI automation, and full leadership infrastructure.</p>
     </div>
     <div class="r-card reveal d1">
       <div class="r-n">ISO</div>
       <div class="r-label">Certified Quality Management</div>
-      <p class="r-desc">Developed and implemented ISO 9001:2015-aligned quality management systems, SOP libraries, and document control infrastructure supporting audit certification and ongoing compliance.</p>
+      <p class="r-desc">Designed and implemented ISO 9001:2015 aligned quality management systems, SOP libraries, and document control infrastructure supporting audit certification and ongoing regulatory compliance for industrial manufacturers.</p>
     </div>
     <div class="r-card reveal d2">
       <div class="r-n">30d</div>
       <div class="r-label">Committed First Deliverable</div>
-      <p class="r-desc">Configured PM system, qualified prospects identified, and active opportunities in discussion in the first 30 days of every engagement.</p>
+      <p class="r-desc">Configured PM platform, documented process gaps, and established active project oversight in the first 30 days of every engagement. No lengthy onboarding periods. Operational from week one.</p>
     </div>
   </div>
   <div class="results-img-row">
-    <div class="rim reveal"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80" alt="Operations"></div>
-    <div class="rim reveal d1"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop&q=80" alt="Team"></div>
-    <div class="rim reveal d2"><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&auto=format&fit=crop&q=80" alt="Technology"></div>
+    <div class="rim reveal"><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=900&auto=format&fit=crop&q=80" alt="Power cable infrastructure"></div>
+    <div class="rim reveal d1"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&auto=format&fit=crop&q=80" alt="Industrial facility night"></div>
+    <div class="rim reveal d2"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&auto=format&fit=crop&q=80" alt="Industrial operations engineer"></div>
   </div>
 </section>
 
 <!-- CTA -->
 <div class="cta" id="contact">
   <div class="cta-img">
-    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&auto=format&fit=crop&q=80" alt="Professional">
+    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=900&auto=format&fit=crop&q=80" alt="Power infrastructure">
   </div>
   <div class="cta-body">
-    <div class="label">Next Step</div>
-    <h2 class="disp" padding-top: 20px; >Ready to build<br>the <em>infrastructure.</em></h2>
-    <p>Retainer-based engagements, no scope-creep surprises. OPO is ready to start within five business days of execution.</p>
+    <div class="lbl">Next Step</div>
+    <h2 class="disp">Ready to build<br>the <em>infrastructure.</em></h2>
+    <p>OPO engagements are retainer-based with no hourly billing and no scope-creep surprises. Ready to start within five business days of execution.</p>
     <div>
       <div class="cta-name">Mariah Feser, PMP</div>
-      <div class="cta-meta">Founder &amp; Principal - Owner Project Office</div>
+      <div class="cta-meta">Founder and Principal, Owner Project Office</div>
       <div class="cta-email">info@ownerprojectoffice.com</div>
-      <div class="cta-meta" style="margin-top:2px;">ownerprojectoffice.com &nbsp;·&nbsp; Canada</div>
+      <div class="cta-meta" style="margin-top:2px;">ownerprojectoffice.com &nbsp;&middot;&nbsp; Vancouver, BC</div>
     </div>
     <a class="btn-dark" href="mailto:info@ownerprojectoffice.com">Get in Touch</a>
   </div>
@@ -748,7 +549,7 @@ footer{
 <!-- FOOTER -->
 <footer>
   <div class="f-logo">Owner Project Office</div>
-  <div class="f-mid">Fractional PMO &amp; Organizational Process Consulting</div>
+  <div class="f-mid">PMO, Process Optimization and Owner Representation</div>
   <div class="f-url">ownerprojectoffice.com</div>
 </footer>
 
