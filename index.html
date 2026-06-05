@@ -121,14 +121,10 @@ h2.disp em{font-style:italic;color:var(--accent);}
 
 /* OWNER REP DEEP DIVE */
 .ownerrep{background:var(--charcoal2);}
-.ownerrep-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:4rem;}
-.ownerrep-img{position:relative;overflow:hidden;border-radius:2px;}
-.ownerrep-img img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;filter:brightness(0.65);}
-.ownerrep-img-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(28,28,30,0.95),transparent);padding:2rem 1.75rem 1.75rem;}
-.ownerrep-img-cap p{font-size:13px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.65;}
-.ownerrep-right{}
-.ownerrep-items{display:flex;flex-direction:column;gap:0;margin-top:2rem;}
-.ownerrep-item{display:grid;grid-template-columns:48px 1fr;gap:1.25rem;padding:1.5rem 0;border-bottom:1px solid var(--rule);}
+.ownerrep-grid{display:block;margin-top:4rem;}
+.ownerrep-items{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.ownerrep-item{display:grid;grid-template-columns:48px 1fr;gap:1.25rem;padding:2rem;border:1px solid var(--rule);margin:-1px 0 0 -1px;transition:background 0.2s;}
+.ownerrep-item:hover{background:var(--charcoal3);}
 .ownerrep-item:first-child{border-top:1px solid var(--rule);}
 .ownerrep-n{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--rule);line-height:1;padding-top:2px;transition:color 0.2s;}
 .ownerrep-item:hover .ownerrep-n{color:var(--accent);}
@@ -200,7 +196,8 @@ footer{background:var(--charcoal2);padding:2rem 4rem;display:flex;align-items:ce
   .hero-left{padding:8rem 1.5rem 4rem;}
   .hero-right{height:320px;}
   .sec,.sec-lt,.process{padding:4rem 1.5rem;}
-  .about-wrap,.pillars-intro,.pillars-grid,.ownerrep-grid,.cta{grid-template-columns:1fr;}
+  .about-wrap,.pillars-intro,.pillars-grid,.cta{grid-template-columns:1fr;}
+  .ownerrep-items{grid-template-columns:1fr;}
   .ind-grid{grid-template-columns:1fr 1fr;}
   .ind-cell:nth-child(2n){border-right:none;}
   .ind-cell:nth-child(n+5){border-bottom:none;}
@@ -254,8 +251,8 @@ footer{background:var(--charcoal2);padding:2rem 4rem;display:flex;align-items:ce
     </div>
     <div class="hero-stat-strip">
       <div>
-        <div class="h-stat-n">Team</div>
-        <div class="h-stat-l">Building</div>
+        <div class="h-stat-n">0 to 16</div>
+        <div class="h-stat-l">PM Team Built</div>
       </div>
       <div>
         <div class="h-stat-n">ISO</div>
@@ -263,12 +260,12 @@ footer{background:var(--charcoal2);padding:2rem 4rem;display:flex;align-items:ce
       </div>
       <div>
         <div class="h-stat-n">30d</div>
-        <div class="h-stat-l">Guaranteed Deliverable</div>
+        <div class="h-stat-l">First Deliverable</div>
       </div>
     </div>
   </div>
   <div class="hero-right">
-    <img src="https://images.unsplash.com/photo-1620578655927-7b88bfcf56bd?w=900&auto=format&fit=crop&q=80" alt="Electrical substation" loading="eager">
+    <img src="https://images.unsplash.com/photo-1624953587687-daf255b6b80a?w=900&auto=format&fit=crop&q=80" alt="Electrical substation" loading="eager">
   </div>
 </section>
 
@@ -293,14 +290,14 @@ footer{background:var(--charcoal2);padding:2rem 4rem;display:flex;align-items:ce
         <span class="pill hi">PMP Certified</span>
         <span class="pill hi">ISO 9001:2015</span>
         <span class="pill hi">Lean Six Sigma</span>
-        <span class="pill hi">Owner's Rep</span>
-        <span class="pill hi">Transformer Sector</span>
-        <span class="pill hi">AI Automation</span>
+        <span class="pill">Owner's Rep</span>
+        <span class="pill">Transformer Sector</span>
+        <span class="pill">AI Automation</span>
       </div>
     </div>
     <div class="about-img reveal d2">
       <img src="https://images.unsplash.com/photo-1548613053-22087dd8edb8?w=800&auto=format&fit=crop&q=80" alt="Power transmission infrastructure">
-      <div class="about-img-tag">USA · Canada</div>
+      <div class="about-img-tag">Vancouver, BC · Canada</div>
     </div>
   </div>
 </section>
@@ -384,15 +381,9 @@ footer{background:var(--charcoal2);padding:2rem 4rem;display:flex;align-items:ce
 <section class="sec ownerrep" id="owner-rep">
   <div class="lbl">Owner Representation</div>
   <h2 class="disp">Your interests.<br><em>Protected.</em></h2>
-  <div class="ownerrep-grid">
-    <div class="ownerrep-img reveal">
-      <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&auto=format&fit=crop&q=80" alt="Industrial waste management operations">
-      <div class="ownerrep-img-cap">
-        <p>OPO brings manufacturer-side knowledge to the owner's table. Having worked inside a transformer production facility, OPO understands what to look for at every stage of a capital equipment project.</p>
-      </div>
-    </div>
-    <div class="reveal d1">
-      <p class="body-p" style="margin-bottom:2.5rem;">Most owners purchase complex electrical or industrial equipment without anyone in their corner who truly understands what happens inside the manufacturer's facility. OPO closes that gap by providing experienced, independent oversight from specification through to energization.</p>
+  <div>
+    <div class="reveal">
+      <p class="body-p" style="margin-bottom:2.5rem;max-width:700px;">Most owners purchase complex electrical or industrial equipment without anyone in their corner who truly understands what happens inside the manufacturer's facility. OPO closes that gap by providing experienced, independent oversight from specification through to energization.</p>
       <div class="ownerrep-items">
         <div class="ownerrep-item">
           <div class="ownerrep-n">01</div>
@@ -505,7 +496,7 @@ footer{background:var(--charcoal2);padding:2rem 4rem;display:flex;align-items:ce
   <h2 class="disp">What experience<br><em>produces.</em></h2>
   <div class="results-grid">
     <div class="r-card reveal">
-      <div class="r-n">Team Building</div>
+      <div class="r-n">0 to 16</div>
       <div class="r-label">PM Department Built from Zero</div>
       <p class="r-desc">Built a project management department from scratch to a team of 16 at a multi-site, ISO-certified transformer manufacturer. This included systems design, SOP development, AI automation, and full leadership infrastructure.</p>
     </div>
