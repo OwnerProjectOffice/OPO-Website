@@ -27,7 +27,7 @@
   --body:'Barlow',sans-serif;
 }
 body{font-family:var(--body);background:var(--off-white);color:var(--ink);font-size:16px;line-height:1.6}
-.page{max-width:1100px;margin:0 auto;background:var(--white)}
+.page{width:100%;background:var(--white)}
 
 /* NAV */
 nav{background:var(--white);padding:0 3rem;height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:100}
@@ -190,7 +190,7 @@ footer{background:var(--ink);padding:1.75rem 3.5rem;display:flex;justify-content
 }
 @media print{
   body{background:white}
-  .page{box-shadow:none;max-width:100%}
+  .page{box-shadow:none}
   nav{position:static}
 }
 </style>
@@ -471,4 +471,5 @@ footer{background:var(--ink);padding:1.75rem 3.5rem;display:flex;justify-content
 </div>
 </body>
 </html>
+
 
