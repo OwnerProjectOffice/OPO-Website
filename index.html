@@ -351,6 +351,79 @@ footer{background:var(--ink);padding:1.75rem 3.5rem;display:flex;justify-content
     </div>
   </div>
 </section>
+  <!-- ============================================================
+  OPO — Facility / Operations Image Section
+  Sits directly below the "Trusted By" bar. This is a real client
+  photo (BIN Mafia equipment), so it's embedded as base64 rather
+  than referenced via CDN URL — unlike the earlier stock-photo
+  version, this asset isn't hosted anywhere external.
+
+  To swap the image later: replace the base64 string after
+  "data:image/jpeg;base64," with a new one. Recommended prep:
+  resize to ~1600px wide, JPEG quality ~70-75, to keep the
+  embedded file size reasonable.
+============================================================ -->
+<style>
+  .facility {
+    position: relative;
+    overflow: hidden;
+    background: #0d1b2a;
+  }
+
+  .facility-img {
+    display: block;
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: center 62%;
+  }
+
+  /* Light steel-blue wash: mostly transparent, only darkens
+     toward the bottom so the caption stays legible. The photo
+     itself stays clearly visible. */
+  .facility-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(30, 58, 95, 0.12) 0%,
+      rgba(30, 58, 95, 0.05) 35%,
+      rgba(30, 58, 95, 0.35) 75%,
+      rgba(30, 58, 95, 0.65) 100%
+    );
+  }
+
+  .facility-caption {
+    position: absolute;
+    left: 4rem;
+    bottom: 1.75rem;
+    right: 4rem;
+    z-index: 2;
+  }
+  .facility-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #E8A020;
+    margin-bottom: 0.5rem;
+  }
+  .facility-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(24px, 3.5vw, 38px);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    max-width: 560px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+
+  @media (max-width: 680px) {
+    .facility-img { height: 240px; }
+    .facility-caption { left: 1.5rem; right: 1.5rem; bottom: 1.25rem; }
+  }
+</style>
  <section class="facility">
   <img
     class="facility-img"
