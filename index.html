@@ -728,11 +728,67 @@ footer{background:var(--ink);padding:1.75rem 3.5rem;display:flex;justify-content
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- <!-- FOOTER -->
 <footer>
   <div class="footer-left">
     <div class="footer-logo-text">Owner Project Office</div>
 
+  </div>
+  <div class="footer-copy">&copy; 2026 OPO &middot; British Columbia &middot; All rights reserved.</div>
+</footer> -->
+
+  <!-- ============================================================
+  OPO — Footer with LinkedIn icon added
+  Icon is inline SVG using fill="currentColor", so it automatically
+  inherits whatever text color your footer already uses — no need
+  to hardcode a hex that might not match your footer's background.
+  Opens in a new tab; rel="noopener noreferrer" is a security best
+  practice for target="_blank" links.
+
+  Placement: icon sits next to your logo text inside .footer-left.
+  If you'd rather it sit next to .footer-copy on the right side
+  instead, move the <a class="footer-linkedin"> block down there.
+============================================================ -->
+<style>
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .footer-linkedin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+  .footer-linkedin:hover {
+    opacity: 1;
+  }
+  .footer-linkedin svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+</style>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-logo-text">Owner Project Office</div>
+    <a
+      class="footer-linkedin"
+      href="https://www.linkedin.com/company/opo-owner-project-office/?viewAsMember=true"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="OPO on LinkedIn"
+    >
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+        <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.44-2.14 2.93v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/>
+      </svg>
+    </a>
   </div>
   <div class="footer-copy">&copy; 2026 OPO &middot; British Columbia &middot; All rights reserved.</div>
 </footer>
