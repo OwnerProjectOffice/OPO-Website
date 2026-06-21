@@ -308,7 +308,7 @@ footer{background:var(--ink);padding:1.75rem 3.5rem;display:flex;justify-content
   </div>
 </section>
 
-  <!-- ============================================================
+<!-- ============================================================
   OPO — "Trusted By" / Partners Section
   Drop this section into ownerprojectoffice.com between any two
   existing <section> blocks. Self-contained: logos are embedded
@@ -338,7 +338,7 @@ footer{background:var(--ink);padding:1.75rem 3.5rem;display:flex;justify-content
   }
   .trusted-by-label {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     letter-spacing: 0.24em;
     text-transform: uppercase;
@@ -356,16 +356,16 @@ footer{background:var(--ink);padding:1.75rem 3.5rem;display:flex;justify-content
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    gap: 3.5rem;
-    row-gap: 2.25rem;
+    gap: 5.5rem;
+    row-gap: 3rem;
   }
 
   .trusted-logo {
-    --logo-h: 34px;
+    --logo-h: 64px;
     display: flex;
     align-items: center;
     height: var(--logo-h);
-    opacity: 0.55;
+    opacity: 0.7;
     filter: grayscale(100%);
     transition: opacity 0.25s ease;
   }
@@ -380,12 +380,14 @@ footer{background:var(--ink);padding:1.75rem 3.5rem;display:flex;justify-content
   /* VE Power's mark is taller relative to its width than BIN MAFIA's
      wordmark, so each logo gets its own height to read as visually
      equal weight in the row rather than literally equal pixel height. */
-  .trusted-logo.ve-power { --logo-h: 38px; }
-  .trusted-logo.bin-mafia { --logo-h: 26px; }
+  .trusted-logo.ve-power { --logo-h: 72px; }
+  .trusted-logo.bin-mafia { --logo-h: 50px; }
 
   @media (max-width: 680px) {
     .trusted-by { padding: 2.5rem 1.5rem 3rem; }
-    .trusted-by-row { gap: 2.25rem; row-gap: 1.75rem; justify-content: center; }
+    .trusted-by-row { gap: 3rem; row-gap: 2.25rem; justify-content: center; }
+    .trusted-logo.ve-power { --logo-h: 56px; }
+    .trusted-logo.bin-mafia { --logo-h: 38px; }
   }
 </style>
 
