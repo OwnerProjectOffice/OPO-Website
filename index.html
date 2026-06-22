@@ -565,7 +565,160 @@ footer{background:var(--ink);padding:1.75rem 3.5rem;display:flex;justify-content
   </div>
 </section>
 
- 
+ <!-- ============================================================
+  OPO — Fit Assessment CTA Section
+  Content right-aligned, typographic style distinct from the hero.
+  Barlow Condensed-led (not Bebas Neue) so it reads as a different
+  register from the cover/hero treatment.
+============================================================ -->
+<style>
+  .fit-cta {
+    padding: 5rem 4rem;
+    background: #1E3A5F;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fit-cta::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 360px; height: 360px;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .fit-cta-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    max-width: 520px;
+    margin-left: auto;
+  }
+
+  .fit-cta-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #E8A020;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+  .fit-cta-eyebrow::after {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: #E8A020;
+    display: inline-block;
+  }
+
+  .fit-cta-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  .fit-cta-heading strong {
+    font-weight: 700;
+    color: #ffffff;
+    display: block;
+  }
+
+  .fit-cta-rule {
+    width: 40px;
+    height: 2px;
+    background: rgba(255,255,255,0.2);
+    margin: 1.25rem 0 1.25rem auto;
+  }
+
+  .fit-cta-sub {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2rem;
+  }
+
+  .fit-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #E8A020;
+    color: #1a1a1a;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 13px 26px;
+    transition: background 0.2s ease, transform 0.15s ease;
+    white-space: nowrap;
+  }
+  .fit-cta-btn:hover {
+    background: #f0ab28;
+    transform: translateY(-1px);
+  }
+  .fit-cta-btn svg {
+    width: 13px;
+    height: 13px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  .fit-cta-note {
+    margin-top: 0.75rem;
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 720px) {
+    .fit-cta { padding: 3.5rem 1.5rem; }
+    .fit-cta-inner { max-width: 100%; }
+    .fit-cta-btn { width: 100%; justify-content: center; }
+  }
+</style>
+
+<section class="fit-cta">
+  <div class="fit-cta-inner">
+    <div class="fit-cta-eyebrow">Is OPO right for you?</div>
+    <h2 class="fit-cta-heading">
+      Find out if your business
+      <strong>is ready for OPO.</strong>
+    </h2>
+    <div class="fit-cta-rule"></div>
+    <p class="fit-cta-sub">A 5-minute assessment to see whether OPO's model fits where your business is today and where it is going.</p>
+    <a href="https://ownerprojectoffice.com/fit-assessment" class="fit-cta-btn">
+      Take the assessment
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 12h14M13 6l6 6-6 6"/>
+      </svg>
+    </a>
+    <p class="fit-cta-note">5 minutes &middot; No commitment required</p>
+  </div>
+</section>
 
 <!-- ============================================================
   OPO — Facility / Operations Image Section
