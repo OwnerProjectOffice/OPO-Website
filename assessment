@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is OPO the right fit? / Owner Project Office</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --steel: #1E3A5F;
+  --steel-dark: #0d1b2a;
+  --steel-mid: #2B5086;
+  --amber: #E8A020;
+  --amber-light: #f5b940;
+  --ink: #1a1a1a;
+  --gray-dark: #2e2e2e;
+  --gray-mid: #6b6b6b;
+  --gray-light: #b0aead;
+  --gray-pale: #e4e2dd;
+  --cream: #F8F7F4;
+  --white: #ffffff;
+  --rule: #d0cdc7;
+  --green: #1a5c2e;
+  --green-bg: #e8f2ec;
+  --yellow: #7a5c00;
+  --yellow-bg: #fef3d0;
+  --red: #7a1a1a;
+  --red-bg: #fde8e8;
+  --bebas: 'Bebas Neue', sans-serif;
+  --cond: 'Barlow Condensed', sans-serif;
+  --body: 'Barlow', sans-serif;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--body);
+  font-weight: 400;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.25rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  font-family: var(--bebas);
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: var(--steel);
+  line-height: 1;
+  text-decoration: none;
+}
+.header-logo span {
+  display: block;
+  font-family: var(--cond);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  margin-top: 3px;
+}
+.header-back {
+  font-family: var(--cond);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+.header-back:hover { color: var(--steel); }
+.header-back::before { content: '←'; font-size: 13px; }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg,rgba(30,58,95,0.92) 45%,rgba(30,58,95,0.5) 100%);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 3.5rem 3rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.hero-left {}
+
+.hero-label {
+  font-family: var(--cond);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-family: var(--body);
+  font-size: clamp(20px, 3.5vw, 32px);
+  font-weight: 300;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.01em;
+  margin-bottom: 1.25rem;
+  max-width: 480px;
+}
+.hero h1 strong {
+  font-weight: 600;
+  color: var(--white);
+  display: block;
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.1;
+}
+
+.hero-desc {
+  font-family: var(--body);
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.55);
+  max-width: 440px;
+}
+
+.hero-right {}
+
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-end;
+}
+.hero-stat {
+  text-align: right;
+  font-family: var(--cond);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+.hero-stat strong {
+  display: block;
+  font-size: 26px;
+  font-family: var(--bebas);
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.75);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.hero-divider {
+  width: 1px; height: 20px;
+  background: rgba(255,255,255,0.1);
+  align-self: flex-end;
+}
+
+/* ── MAIN LAYOUT ── */
+.page-body {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+/* ── PROGRESS BAR ── */
+.progress-wrap {
+  margin-bottom: 2.5rem;
+}
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.progress-text {
+  font-family: var(--cond);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+}
+.progress-count {
+  font-family: var(--bebas);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--gray-light);
+}
+.progress-track {
+  height: 2px;
+  background: var(--gray-pale);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--amber);
+  border-radius: 1px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+
+/* ── ASSESSMENT FORM ── */
+.assessment {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.q-block {
+  border-top: 1px solid var(--rule);
+  padding: 2rem 0;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+.q-block.active, .q-block.answered {
+  opacity: 1;
+}
+.q-block:first-child {
+  border-top: none;
+  padding-top: 0;
+  opacity: 1;
+}
+
+.q-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.75rem;
+}
+.q-num {
+  font-family: var(--bebas);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--gray-light);
+  min-width: 20px;
+}
+.q-category {
+  font-family: var(--cond);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  padding: 2px 8px;
+  border: 1px solid var(--gray-pale);
+  border-radius: 2px;
+}
+
+.q-text {
+  font-family: var(--cond);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.q-hint {
+  font-family: var(--body);
+  font-size: 12.5px;
+  font-weight: 300;
+  color: var(--gray-mid);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  max-width: 560px;
+}
+
+/* ── OPTION BUTTONS ── */
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.opt-btn {
+  font-family: var(--cond);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+  background: var(--white);
+  border: 1px solid var(--rule);
+  padding: 10px 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1;
+  position: relative;
+}
+
+.opt-btn:hover {
+  border-color: var(--steel);
+  color: var(--steel);
+  background: #f0f4f8;
+}
+
+.opt-btn.selected {
+  background: var(--steel);
+  border-color: var(--steel);
+  color: var(--white);
+}
+
+.opt-btn.selected::after {
+  content: ' ✓';
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* ── SECTION DIVIDERS ── */
+.section-divider {
+  background: var(--amber);
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-divider-label {
+  font-family: var(--cond);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.45);
+}
+.section-divider-title {
+  font-family: var(--bebas);
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+
+/* ── SUBMIT ── */
+.submit-wrap {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.submit-btn {
+  font-family: var(--bebas);
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  color: var(--white);
+  background: var(--steel);
+  border: none;
+  padding: 14px 36px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.submit-btn:hover { background: var(--steel-mid); }
+.submit-btn:disabled {
+  background: var(--gray-pale);
+  color: var(--gray-light);
+  cursor: not-allowed;
+}
+.submit-note {
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--gray-light);
+  line-height: 1.5;
+}
+.submit-note strong {
+  color: var(--gray-mid);
+  font-weight: 400;
+}
+
+/* ── RESULTS ── */
+.results {
+  display: none;
+  margin-top: 2rem;
+}
+.results.visible { display: block; }
+
+.result-callout {
+  padding: 2.5rem;
+  border-radius: 2px;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.result-callout.strong-fit {
+  background: var(--green-bg);
+  border-left: 4px solid var(--green);
+}
+.result-callout.possible-fit {
+  background: var(--yellow-bg);
+  border-left: 4px solid #c8930a;
+}
+.result-callout.not-yet {
+  background: var(--red-bg);
+  border-left: 4px solid #c0392b;
+}
+
+.result-verdict-label {
+  font-family: var(--cond);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.strong-fit .result-verdict-label { color: var(--green); }
+.possible-fit .result-verdict-label { color: var(--yellow); }
+.not-yet .result-verdict-label { color: var(--red); }
+
+.result-verdict {
+  font-family: var(--bebas);
+  font-size: clamp(28px, 5vw, 44px);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+.strong-fit .result-verdict { color: var(--green); }
+.possible-fit .result-verdict { color: var(--yellow); }
+.not-yet .result-verdict { color: var(--red); }
+
+.result-body {
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--gray-dark);
+  max-width: 540px;
+}
+
+/* ── SCORE BAR ── */
+.score-display {
+  margin: 1.5rem 0;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  padding: 1.5rem;
+  border-radius: 2px;
+}
+.score-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.score-row:last-child { margin-bottom: 0; }
+.score-row-label {
+  font-family: var(--cond);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+  min-width: 140px;
+}
+.score-track {
+  flex: 1;
+  height: 6px;
+  background: var(--gray-pale);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.score-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 0;
+}
+.score-bar.ops { background: var(--steel); }
+.score-bar.bd { background: var(--amber); }
+.score-bar.fit { background: #5a9b6a; }
+.score-pct {
+  font-family: var(--bebas);
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  min-width: 44px;
+  text-align: right;
+}
+
+/* ── RESULT ACTIONS ── */
+.result-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.action-primary {
+  font-family: var(--bebas);
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  background: var(--steel);
+  padding: 12px 28px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.action-primary:hover { background: var(--steel-mid); }
+.action-secondary {
+  font-family: var(--cond);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+  border: 1px solid var(--rule);
+  padding: 12px 20px;
+  border-radius: 2px;
+  text-decoration: none;
+  background: var(--white);
+  transition: all 0.2s;
+  cursor: pointer;
+  display: inline-block;
+}
+.action-secondary:hover { border-color: var(--gray-mid); color: var(--ink); }
+
+/* ── BREAKDOWN ── */
+.breakdown {
+  margin-top: 1.5rem;
+}
+.breakdown-title {
+  font-family: var(--cond);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+  margin-bottom: 1rem;
+}
+.breakdown-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.breakdown-item {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  padding: 1rem 1.25rem;
+  border-radius: 2px;
+}
+.breakdown-item-label {
+  font-family: var(--cond);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  margin-bottom: 4px;
+}
+.breakdown-item-val {
+  font-family: var(--cond);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.breakdown-item.highlight { border-color: var(--steel); }
+.breakdown-item.highlight .breakdown-item-label { color: var(--steel); }
+
+/* ── FOOTER ── */
+.site-footer {
+  background: var(--white);
+  border-top: 1px solid var(--rule);
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-logo {
+  font-family: var(--bebas);
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  color: var(--steel);
+}
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-link {
+  font-family: var(--cond);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-link:hover { color: var(--steel); }
+.footer-contact {
+  font-family: var(--cond);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+}
+
+/* ── MOBILE ── */
+@media (max-width: 640px) {
+  .site-header { padding: 1rem 1.25rem; }
+  .hero { min-height: 340px; }
+  .hero-inner { grid-template-columns: 1fr; padding: 2.5rem 1.25rem 2rem; }
+  .hero-right { display: none; }
+  .page-body { padding: 2rem 1.25rem 4rem; }
+  .site-footer { padding: 1.25rem; flex-direction: column; align-items: flex-start; }
+  .breakdown-items { grid-template-columns: 1fr; }
+  .options { flex-direction: column; }
+  .opt-btn { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-fill, .score-bar { transition: none; }
+  .q-block { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="site-header">
+  <a href="/" class="header-logo">
+    OPO
+    <span>Owner Project Office</span>
+  </a>
+  <a href="/" class="header-back">ownerprojectoffice.com</a>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <img
+    class="hero-img"
+    src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1400&q=80&fit=crop"
+    alt="Industrial engineers reviewing project documents"
+  >
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-label">Self-Assessment</div>
+      <h1>
+        Find out if OPO is<br>
+        <strong>the right engagement<br>for your business.</strong>
+      </h1>
+      <p class="hero-desc">OPO works best with companies that are ready to build. Not companies that need convincing. Answer 10 questions honestly and we'll tell you where you stand.</p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-meta">
+        <div class="hero-stat">
+          <strong>10</strong>
+          Questions
+        </div>
+        <div class="hero-stat">
+          <strong>3 min</strong>
+          To complete
+        </div>
+        <div class="hero-stat">
+          <strong>Instant</strong>
+          Result
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BODY ── -->
+<main class="page-body">
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span class="progress-text">Your progress</span>
+      <span class="progress-count" id="progressCount">0 of 10 answered</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <!-- ASSESSMENT -->
+  <div class="assessment" id="assessmentForm">
+
+    <!-- SECTION A -->
+    <div class="section-divider">
+      <span class="section-divider-label">Section A</span>
+      <span class="section-divider-title">Your Operations</span>
+    </div>
+
+    <!-- Q1 -->
+    <div class="q-block active" data-q="1">
+      <div class="q-eyebrow">
+        <span class="q-num">01</span>
+        <span class="q-category">Company Stage</span>
+      </div>
+      <div class="q-text">How would you describe your company's current operational state?</div>
+      <div class="q-hint">Think about how projects and orders are managed day to day: whether there are defined processes or whether things are handled ad hoc.</div>
+      <div class="options">
+        <button class="opt-btn" data-q="1" data-score="0">We're still figuring things out. No real processes yet</button>
+        <button class="opt-btn" data-q="1" data-score="2">We have informal processes but nothing documented</button>
+        <button class="opt-btn" data-q="1" data-score="3">Some SOPs exist but they're inconsistent or outdated</button>
+        <button class="opt-btn" data-q="1" data-score="1">We have solid systems. We're looking to refine, not rebuild</button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-block" data-q="2">
+      <div class="q-eyebrow">
+        <span class="q-num">02</span>
+        <span class="q-category">Growth Intent</span>
+      </div>
+      <div class="q-text">What does your growth ambition look like over the next 12 to 24 months?</div>
+      <div class="q-hint">OPO is built for companies planning to scale. Not companies in maintenance mode or survival mode.</div>
+      <div class="options">
+        <button class="opt-btn" data-q="2" data-score="0">Survival mode. We're focused on keeping the lights on</button>
+        <button class="opt-btn" data-q="2" data-score="1">Steady growth, modest targets, low risk appetite</button>
+        <button class="opt-btn" data-q="2" data-score="3">Active growth. We're pushing for meaningful revenue increases</button>
+        <button class="opt-btn" data-q="2" data-score="3">Rapid expansion: new markets, new clients, high ambition</button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-block" data-q="3">
+      <div class="q-eyebrow">
+        <span class="q-num">03</span>
+        <span class="q-category">Project Volume</span>
+      </div>
+      <div class="q-text">How are you currently managing active projects and client deliverables?</div>
+      <div class="q-hint">This helps assess whether you need project management infrastructure or a more strategic engagement.</div>
+      <div class="options">
+        <button class="opt-btn" data-q="3" data-score="1">Email and spreadsheets. It works but only just</button>
+        <button class="opt-btn" data-q="3" data-score="3">A mix of tools but no single source of truth</button>
+        <button class="opt-btn" data-q="3" data-score="2">We have a PM platform but it's not set up properly</button>
+        <button class="opt-btn" data-q="3" data-score="1">Strong PM systems already in place</button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-block" data-q="4">
+      <div class="q-eyebrow">
+        <span class="q-num">04</span>
+        <span class="q-category">Documentation</span>
+      </div>
+      <div class="q-text">If a key person left your company tomorrow, how at risk would your operations be?</div>
+      <div class="q-hint">This is a direct test of whether your business runs on documented systems or on individuals.</div>
+      <div class="options">
+        <button class="opt-btn" data-q="4" data-score="0">Significant risk: knowledge lives in people's heads</button>
+        <button class="opt-btn" data-q="4" data-score="3">High risk: some things are written down but not enough</button>
+        <button class="opt-btn" data-q="4" data-score="2">Moderate risk: key processes are documented but not all</button>
+        <button class="opt-btn" data-q="4" data-score="1">Low risk: we have solid SOPs and handoff protocols</button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-block" data-q="5">
+      <div class="q-eyebrow">
+        <span class="q-num">05</span>
+        <span class="q-category">Readiness</span>
+      </div>
+      <div class="q-text">How does your leadership team approach outside support and process change?</div>
+      <div class="q-hint">OPO's work requires active collaboration with leadership. Resistance to process change is the most common reason engagements underperform.</div>
+      <div class="options">
+        <button class="opt-btn" data-q="5" data-score="0">Skeptical: we prefer to keep things internal</button>
+        <button class="opt-btn" data-q="5" data-score="1">Cautious: open to it but leadership buy-in is uncertain</button>
+        <button class="opt-btn" data-q="5" data-score="2">Supportive: leadership is aligned but capacity is limited</button>
+        <button class="opt-btn" data-q="5" data-score="3">Fully onboard: the founder or GM will be engaged directly</button>
+      </div>
+    </div>
+
+    <!-- SECTION B -->
+    <div class="section-divider">
+      <span class="section-divider-label">Section B</span>
+      <span class="section-divider-title">Your Business Development</span>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q-block" data-q="6">
+      <div class="q-eyebrow">
+        <span class="q-num">06</span>
+        <span class="q-category">Sales Pipeline</span>
+      </div>
+      <div class="q-text">How would you describe your current sales pipeline and business development effort?</div>
+      <div class="q-hint">OPO builds and manages BD from the ground up. We're most effective when there's room to grow the pipeline, not just maintain it.</div>
+      <div class="options">
+        <button class="opt-btn" data-q="6" data-score="1">No real pipeline: we rely on referrals and word of mouth</button>
+        <button class="opt-btn" data-q="6" data-score="3">Inconsistent: some activity but no structured approach</button>
+        <button class="opt-btn" data-q="6" data-score="2">In progress: we're building but need more firepower</button>
+        <button class="opt-btn" data-q="6" data-score="1">Strong: we have a dedicated sales team and active pipeline</button>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="q-block" data-q="7">
+      <div class="q-eyebrow">
+        <span class="q-num">07</span>
+        <span class="q-category">Industry Fit</span>
+      </div>
+      <div class="q-text">Which best describes your company's sector?</div>
+      <div class="q-hint">OPO's network and expertise is deepest in the electrical infrastructure and industrial supply chain. Fit outside these sectors varies.</div>
+      <div class="options">
+        <button class="opt-btn" data-q="7" data-score="3">Transformers, switchgear, or electrical equipment supply</button>
+        <button class="opt-btn" data-q="7" data-score="3">Utilities, EPCs, or power infrastructure</button>
+        <button class="opt-btn" data-q="7" data-score="2">Industrial, mining, oil and gas, or data centers</button>
+        <button class="opt-btn" data-q="7" data-score="2">General construction, manufacturing, or waste management</button>
+        <button class="opt-btn" data-q="7" data-score="1">Professional services, technology, or another sector</button>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="q-block" data-q="8">
+      <div class="q-eyebrow">
+        <span class="q-num">08</span>
+        <span class="q-category">Deal Profile</span>
+      </div>
+      <div class="q-text">What does a typical contract or project value look like for your business?</div>
+      <div class="q-hint">OPO's commission model is designed for B2B deals of meaningful size. Smaller or higher-volume transactional businesses may not be the right match.</div>
+      <div class="options">
+        <button class="opt-btn" data-q="8" data-score="1">Under $50,000, high volume, lower value</button>
+        <button class="opt-btn" data-q="8" data-score="2">$50,000 to $250,000, mid-market projects</button>
+        <button class="opt-btn" data-q="8" data-score="3">$250,000 to $2,000,000, substantial contracts</button>
+        <button class="opt-btn" data-q="8" data-score="3">Over $2,000,000: major capital projects</button>
+      </div>
+    </div>
+
+    <!-- SECTION C -->
+    <div class="section-divider">
+      <span class="section-divider-label">Section C</span>
+      <span class="section-divider-title">Your Situation</span>
+    </div>
+
+    <!-- Q9 -->
+    <div class="q-block" data-q="9">
+      <div class="q-eyebrow">
+        <span class="q-num">09</span>
+        <span class="q-category">Timing</span>
+      </div>
+      <div class="q-text">What is driving your interest in OPO right now?</div>
+      <div class="q-hint">Urgency and clarity of need helps us understand whether this is the right moment to engage.</div>
+      <div class="options">
+        <button class="opt-btn" data-q="9" data-score="1">Just exploring: no immediate pressure or deadline</button>
+        <button class="opt-btn" data-q="9" data-score="2">We have a growth goal but no hard timeline</button>
+        <button class="opt-btn" data-q="9" data-score="3">We have a specific gap we need to close in the next 90 days</button>
+        <button class="opt-btn" data-q="9" data-score="3">Urgent: we're losing deals or capacity is breaking down</button>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="q-block" data-q="10">
+      <div class="q-eyebrow">
+        <span class="q-num">10</span>
+        <span class="q-category">Investment</span>
+      </div>
+      <div class="q-text">How does your leadership team view investment in operational and business development infrastructure?</div>
+      <div class="q-hint">OPO engagements require a retainer commitment. Companies that view this as overhead rather than infrastructure are rarely a strong fit.</div>
+      <div class="options">
+        <button class="opt-btn" data-q="10" data-score="0">We're not in a position to invest in support right now</button>
+        <button class="opt-btn" data-q="10" data-score="1">We'd consider it if we could see immediate ROI</button>
+        <button class="opt-btn" data-q="10" data-score="2">We understand the value, budget needs to be confirmed</button>
+        <button class="opt-btn" data-q="10" data-score="3">We're ready to invest: the right engagement is the priority</button>
+      </div>
+    </div>
+
+  </div><!-- /#assessmentForm -->
+
+  <!-- SUBMIT -->
+  <div class="submit-wrap" id="submitWrap">
+    <button class="submit-btn" id="submitBtn" disabled>
+      See your result
+      <span>→</span>
+    </button>
+    <p class="submit-note"><strong>Answer all 10 questions</strong> to unlock your result.<br>No email required. Your score is calculated instantly.</p>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results" id="results">
+
+    <div class="result-callout" id="resultCallout">
+      <div class="result-verdict-label" id="resultLabel"></div>
+      <div class="result-verdict" id="resultVerdict"></div>
+      <p class="result-body" id="resultBody"></p>
+    </div>
+
+    <div class="score-display">
+      <div class="score-row">
+        <span class="score-row-label">Operations readiness</span>
+        <div class="score-track"><div class="score-bar ops" id="barOps"></div></div>
+        <span class="score-pct" id="pctOps">0%</span>
+      </div>
+      <div class="score-row">
+        <span class="score-row-label">BD opportunity</span>
+        <div class="score-track"><div class="score-bar bd" id="barBD"></div></div>
+        <span class="score-pct" id="pctBD">0%</span>
+      </div>
+      <div class="score-row">
+        <span class="score-row-label">Overall fit</span>
+        <div class="score-track"><div class="score-bar fit" id="barFit"></div></div>
+        <span class="score-pct" id="pctFit">0%</span>
+      </div>
+    </div>
+
+    <div class="breakdown" id="breakdownWrap">
+      <div class="breakdown-title">What your answers show</div>
+      <div class="breakdown-items" id="breakdownItems"></div>
+    </div>
+
+    <div class="result-actions" id="resultActions"></div>
+
+  </div>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="footer-logo">Owner Project Office</div>
+  <div class="footer-links">
+    <a href="/" class="footer-link">Home</a>
+    <a href="/fit-assessment.html" class="footer-link">Fit Assessment</a>
+  </div>
+  <div class="footer-contact">info@ownerprojectoffice.com</div>
+</footer>
+
+<script>
+// ── SCORING DATA ──
+const answers = {};
+
+const MAX_OPS = 12;  // Q1–Q5 max (3+3+3+3+3 but Q4 caps at 3)
+const MAX_BD  = 12;  // Q6–Q8 max
+const MAX_SIT = 6;   // Q9–Q10 max
+const MAX_TOTAL = 30;
+
+// Section groupings
+const OPS_QS = [1,2,3,4,5];
+const BD_QS  = [6,7,8];
+const SIT_QS = [9,10];
+
+// Result content
+const results = {
+  strong: {
+    cls: 'strong-fit',
+    label: 'OPO Fit Assessment: Strong Match',
+    verdict: "OPO is a strong fit.",
+    body: "Your business has the profile, ambition, and readiness that OPO engagements are built for. You're operating in the right sector, you have real growth intent, and there's meaningful infrastructure work to do. The next step is a conversation to confirm scope and timing. OPO can typically start within 5 business days of agreement execution.",
+    actions: [
+      { label: 'Get in touch', href: 'mailto:info@ownerprojectoffice.com?subject=OPO Engagement Inquiry', primary: true },
+      { label: 'Learn more about OPO', href: '/', primary: false }
+    ],
+    breakdown: [
+      { label: 'Next step', val: 'Book a discovery call' },
+      { label: 'Typical start', val: '5 business days' }
+    ]
+  },
+  possible: {
+    cls: 'possible-fit',
+    label: 'OPO Fit Assessment: Possible Match',
+    verdict: "Worth a conversation.",
+    body: "You're not a clear no, but a few things give us pause. That could mean timing isn't right yet, that your business needs a slightly different scope, or that there's a specific gap we'd need to understand better before committing. We're always open to an honest conversation. If something about your situation is nuanced, reach out and we'll tell you straight.",
+    actions: [
+      { label: 'Talk to us anyway', href: 'mailto:info@ownerprojectoffice.com?subject=OPO Fit Question', primary: true },
+      { label: 'Retake assessment', href: '#', primary: false, retake: true }
+    ],
+    breakdown: [
+      { label: 'Recommendation', val: 'Short discovery call' },
+      { label: 'Outcome', val: 'Honest answer either way' }
+    ]
+  },
+  notyet: {
+    cls: 'not-yet',
+    label: 'OPO Fit Assessment: Not the right time',
+    verdict: "Not the right fit yet.",
+    body: "Based on your answers, this isn't the right moment for an OPO engagement, and we'd rather tell you now than waste your time or money on a scope that won't land. The most common reasons: the company isn't yet at a stage where infrastructure investment makes sense, or the growth intent isn't strong enough to make the model work. That can change. When it does, we're here.",
+    actions: [
+      { label: 'Ask us a question', href: 'mailto:info@ownerprojectoffice.com?subject=OPO Question', primary: false },
+      { label: 'Retake assessment', href: '#', primary: false, retake: true }
+    ],
+    breakdown: [
+      { label: 'What to revisit', val: 'Growth intent and readiness' },
+      { label: 'Come back when', val: 'You\'re ready to invest' }
+    ]
+  }
+};
+
+// ── INTERACTION ──
+const totalQs = 10;
+
+document.querySelectorAll('.opt-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const q = this.dataset.q;
+    const score = parseInt(this.dataset.score);
+    answers[q] = score;
+
+    // Update button states
+    document.querySelectorAll(`.opt-btn[data-q="${q}"]`).forEach(b => b.classList.remove('selected'));
+    this.classList.add('selected');
+
+    // Update block states
+    const block = this.closest('.q-block');
+    block.classList.add('answered');
+
+    // Activate next block
+    const nextBlock = block.nextElementSibling;
+    if (nextBlock) {
+      // Skip section dividers
+      const realNext = nextBlock.classList.contains('section-divider')
+        ? nextBlock.nextElementSibling
+        : nextBlock;
+      if (realNext && realNext.classList.contains('q-block')) {
+        realNext.classList.add('active');
+        setTimeout(() => {
+          realNext.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 200);
+      }
+    }
+
+    updateProgress();
+  });
+});
+
+function updateProgress() {
+  const answered = Object.keys(answers).length;
+  const pct = Math.round((answered / totalQs) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressCount').textContent = `${answered} of ${totalQs} answered`;
+
+  const btn = document.getElementById('submitBtn');
+  if (answered === totalQs) {
+    btn.disabled = false;
+    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+document.getElementById('submitBtn').addEventListener('click', showResults);
+
+function showResults() {
+  const opsScore = OPS_QS.reduce((s, q) => s + (answers[q] || 0), 0);
+  const bdScore  = BD_QS.reduce((s, q) => s + (answers[q] || 0), 0);
+  const sitScore = SIT_QS.reduce((s, q) => s + (answers[q] || 0), 0);
+  const total    = opsScore + bdScore + sitScore;
+
+  const opsPct = Math.round((opsScore / MAX_OPS) * 100);
+  const bdPct  = Math.round((bdScore / MAX_BD) * 100);
+  const fitPct = Math.round((total / MAX_TOTAL) * 100);
+
+  // Determine result tier
+  let tier;
+  if (fitPct >= 65 && opsPct >= 50 && bdPct >= 50) {
+    tier = 'strong';
+  } else if (fitPct >= 40 || (opsPct >= 40 && bdPct >= 40)) {
+    tier = 'possible';
+  } else {
+    tier = 'notyet';
+  }
+
+  const r = results[tier];
+
+  // Render callout
+  const callout = document.getElementById('resultCallout');
+  callout.className = 'result-callout ' + r.cls;
+  document.getElementById('resultLabel').textContent = r.label;
+  document.getElementById('resultVerdict').textContent = r.verdict;
+  document.getElementById('resultBody').textContent = r.body;
+
+  // Score bars
+  setTimeout(() => {
+    document.getElementById('barOps').style.width = opsPct + '%';
+    document.getElementById('barBD').style.width  = bdPct + '%';
+    document.getElementById('barFit').style.width = fitPct + '%';
+    document.getElementById('pctOps').textContent = opsPct + '%';
+    document.getElementById('pctBD').textContent  = bdPct + '%';
+    document.getElementById('pctFit').textContent = fitPct + '%';
+  }, 100);
+
+  // Breakdown
+  const items = [
+    { label: 'Operations score', val: `${opsScore} / ${MAX_OPS}`, highlight: opsScore >= 8 },
+    { label: 'BD opportunity score', val: `${bdScore} / ${MAX_BD}`, highlight: bdScore >= 8 },
+    ...r.breakdown
+  ];
+  document.getElementById('breakdownItems').innerHTML = items.map(i =>
+    `<div class="breakdown-item ${i.highlight ? 'highlight' : ''}">
+      <div class="breakdown-item-label">${i.label}</div>
+      <div class="breakdown-item-val">${i.val}</div>
+    </div>`
+  ).join('');
+
+  // Actions
+  document.getElementById('resultActions').innerHTML = r.actions.map(a => {
+    if (a.retake) {
+      return `<button class="action-secondary" onclick="retake()">Retake assessment</button>`;
+    }
+    return a.primary
+      ? `<a href="${a.href}" class="action-primary">${a.label}</a>`
+      : `<a href="${a.href}" class="action-secondary">${a.label}</a>`;
+  }).join('');
+
+  // Show results, hide submit
+  document.getElementById('submitWrap').style.display = 'none';
+  const resultsEl = document.getElementById('results');
+  resultsEl.classList.add('visible');
+  setTimeout(() => {
+    resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 150);
+}
+
+function retake() {
+  // Reset everything
+  Object.keys(answers).forEach(k => delete answers[k]);
+  document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.q-block').forEach((b, i) => {
+    b.classList.remove('answered', 'active');
+    if (i === 0) b.classList.add('active');
+  });
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('progressCount').textContent = '0 of 10 answered';
+  document.getElementById('submitBtn').disabled = true;
+  document.getElementById('submitWrap').style.display = '';
+  document.getElementById('results').classList.remove('visible');
+  document.getElementById('barOps').style.width = '0%';
+  document.getElementById('barBD').style.width = '0%';
+  document.getElementById('barFit').style.width = '0%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
