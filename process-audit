@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Control Gap Review | Owner Project Office</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --steel:#1E3A5F;
+  --steel-mid:#2B5086;
+  --steel-light:#EAF0F8;
+  --amber:#E8A020;
+  --amber-light:#FDF3E0;
+  --off-white:#F8F7F4;
+  --white:#FFFFFF;
+  --ink:#1A1A1A;
+  --gray-dark:#2E2E2E;
+  --gray-mid:#6B6B6B;
+  --gray-pale:#E8E6E1;
+  --rule:#D8D5CF;
+  --bebas:'Bebas Neue',sans-serif;
+  --cond:'Barlow Condensed',sans-serif;
+  --body:'Barlow',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--off-white);color:var(--ink);font-size:16px;line-height:1.6}
+.page{width:100%;background:var(--white)}
+
+/* NAV */
+nav{background:var(--white);padding:0 3rem;height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:100}
+.nav-left{display:flex;align-items:center;gap:14px}
+.nav-wordmark{font-family:var(--cond);font-size:14px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--steel)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-family:var(--cond);font-size:14px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray-mid);text-decoration:none}
+.nav-cta{background:var(--steel);color:var(--white)!important;padding:8px 18px;border-radius:2px;font-size:11px!important}
+
+/* HERO: full-width split */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
+.hero-text{background:var(--steel);padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.hero-eyebrow{font-family:var(--cond);font-size:12px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--amber);margin-bottom:1.25rem}
+.hero h1{font-family:var(--bebas);font-size:clamp(52px,5.5vw,78px);line-height:0.9;color:var(--white);letter-spacing:0.02em;margin-bottom:1.5rem}
+.hero h1 span{color:var(--amber)}
+.hero-sub{font-family:var(--body);font-size:17px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.72);max-width:460px;margin-bottom:2.5rem;text-align:center}
+.hero-cta-row{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.btn-amber{background:var(--amber);color:var(--ink);font-family:var(--cond);font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:14px 28px;border:none;cursor:pointer;border-radius:2px;text-decoration:none;display:inline-block}
+.btn-ghost{background:transparent;color:var(--white);font-family:var(--cond);font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;padding:14px 28px;border:1.5px solid rgba(255,255,255,0.3);cursor:pointer;border-radius:2px;text-decoration:none;display:inline-block}
+.hero-img-side{overflow:hidden;position:relative}
+.hero-img-side img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-img-side::after{content:'';position:absolute;inset:0;background:linear-gradient(270deg,transparent 60%,rgba(30,58,95,0.3) 100%)}
+
+/* FACT BAR */
+.fact-bar{background:var(--amber);display:grid;grid-template-columns:repeat(4,1fr);border-top:3px solid rgba(0,0,0,0.08)}
+.fact-item{padding:1.5rem 2rem;border-right:1px solid rgba(0,0,0,0.1);display:flex;flex-direction:column;gap:4px}
+.fact-item:last-child{border-right:none}
+.fact-val{font-family:var(--bebas);font-size:36px;color:var(--ink);letter-spacing:0.02em;line-height:1}
+.fact-label{font-family:var(--cond);font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(0,0,0,0.55)}
+
+/* SECTION COMMON */
+.section-eyebrow{font-family:var(--cond);font-size:12px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:0.75rem}
+.section-heading{font-family:var(--bebas);font-size:clamp(36px,4vw,54px);line-height:0.95;color:var(--ink);letter-spacing:0.01em;margin-bottom:1.25rem}
+.section-body{font-family:var(--body);font-size:17px;font-weight:300;line-height:1.85;color:var(--gray-dark)}
+
+/* PROBLEM: image left, text right */
+.problem{display:grid;grid-template-columns:5fr 7fr;min-height:480px}
+.problem-img{overflow:hidden;position:relative}
+.problem-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.problem-img::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 70%,rgba(30,58,95,0.12) 100%);z-index:1}
+.problem-text{padding:5rem 4rem;background:var(--white);display:flex;flex-direction:column;justify-content:center}
+.pain-list{display:flex;flex-direction:column;gap:10px;margin-top:2rem}
+.pain-item{padding:1rem 1.25rem 1rem 1rem;background:var(--off-white);border-left:3px solid var(--amber);border-radius:0 3px 3px 0}
+.pain-title{font-family:var(--cond);font-size:16px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink);margin-bottom:3px}
+.pain-desc{font-family:var(--body);font-size:14px;font-weight:300;color:var(--gray-dark);line-height:1.55}
+
+/* DELIVERABLES: full-width numbered list with alternating bands */
+.deliverables{background:var(--off-white);padding:5rem 0}
+.deliverables-header{text-align:center;padding:0 3.5rem 3rem}
+.del-list{display:flex;flex-direction:column}
+.del-row{display:grid;grid-template-columns:80px 1fr 1fr;align-items:center;padding:1.5rem 4rem;gap:2rem;border-top:1px solid var(--rule)}
+.del-row:last-child{border-bottom:1px solid var(--rule)}
+.del-row:nth-child(even){background:rgba(255,255,255,0.7)}
+.del-num-big{font-family:var(--bebas);font-size:52px;color:var(--gray-pale);line-height:1;letter-spacing:-0.02em}
+.del-name{font-family:var(--cond);font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--steel)}
+.del-amber-bar{width:24px;height:3px;background:var(--amber);margin-top:6px}
+.del-desc{font-family:var(--body);font-size:15px;font-weight:300;color:var(--gray-dark);line-height:1.65}
+
+/* PROCESS: full bleed image banner + phase accordion */
+.process-banner{position:relative;height:320px;overflow:hidden}
+.process-banner img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.process-banner-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(30,58,95,0.88) 0%,rgba(30,58,95,0.4) 100%)}
+.process-banner-text{position:absolute;bottom:0;left:0;right:0;padding:3rem 4rem;z-index:2}
+.process-banner-text .section-eyebrow{color:var(--amber)}
+.process-banner-text .section-heading{color:var(--white);margin-bottom:0}
+.phases{background:var(--white)}
+.phase{display:grid;grid-template-columns:220px 1fr;border-bottom:1px solid var(--rule)}
+.phase:first-child{border-top:1px solid var(--rule)}
+.phase-label-col{padding:2.5rem 2rem 2.5rem 4rem;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:flex-start}
+.phase-num{font-family:var(--bebas);font-size:44px;color:var(--gray-pale);line-height:1}
+.phase-name{font-family:var(--cond);font-size:12px;font-weight:700;letter-spacing:0.20em;text-transform:uppercase;color:var(--steel);margin-top:4px}
+.phase-steps-col{padding:2.5rem 4rem}
+.phase-step{font-family:var(--body);font-size:15px;font-weight:300;color:var(--gray-dark);line-height:1.6;padding:5px 0 5px 18px;position:relative}
+.phase-step::before{content:'';position:absolute;left:0;top:13px;width:8px;height:1.5px;background:var(--amber)}
+
+/* SCOPE: dark steel section with two columns */
+.scope{background:var(--steel);padding:5rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.scope .section-eyebrow{color:var(--amber)}
+.scope .section-heading{color:var(--white)}
+.scope-body{font-family:var(--body);font-size:16px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.6);margin-bottom:2rem}
+.scope-items{display:flex;flex-direction:column;gap:8px}
+.scope-item{font-family:var(--cond);font-size:15px;font-weight:500;letter-spacing:0.04em;color:rgba(255,255,255,0.75);padding:9px 14px;border:0.5px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.05);display:flex;align-items:center;gap:10px}
+.scope-item-icon{width:16px;height:16px;border-radius:50%;background:rgba(232,160,32,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.scope-item-icon svg{width:8px;height:8px;stroke:var(--amber);fill:none;stroke-width:2.5;stroke-linecap:round}
+.scope-item.out{color:rgba(255,255,255,0.35)}
+.scope-item.out .scope-item-icon{background:rgba(255,255,255,0.06)}
+.scope-item.out .scope-item-icon svg{stroke:rgba(255,255,255,0.25)}
+
+/* CTA BAND: full-width image strip with text overlay */
+.cta-band{position:relative;min-height:420px;display:flex;align-items:center}
+.cta-band-img{position:absolute;inset:0}
+.cta-band-img img{width:100%;height:100%;object-fit:cover;object-position:center}
+.cta-band-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,58,95,0.95) 50%,rgba(30,58,95,0.5) 100%)}
+.cta-band-content{position:relative;z-index:2;padding:5rem 4rem;max-width:600px}
+.cta-band-content .section-eyebrow{color:var(--amber)}
+.cta-band-content .section-heading{color:var(--white);font-size:clamp(36px,4vw,58px);margin-bottom:1rem}
+.cta-band-sub{font-family:var(--body);font-size:17px;font-weight:300;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:1.5rem;max-width:480px}
+.cta-timeline-note{font-family:var(--cond);font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:2rem;padding-left:12px;border-left:2px solid var(--amber)}
+.cta-btn-row{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* PAYMENT / UPSELL strip */
+.details-strip{background:var(--off-white);display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
+.detail-block{padding:3rem 4rem;display:flex;flex-direction:column;gap:0.5rem}
+.detail-block:first-child{border-right:1px solid var(--rule)}
+.detail-label{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:0.5rem}
+.detail-heading{font-family:var(--bebas);font-size:clamp(22px,2.5vw,30px);color:var(--ink);letter-spacing:0.02em;margin-bottom:0.5rem}
+.detail-body{font-family:var(--body);font-size:15px;font-weight:300;color:var(--gray-dark);line-height:1.7}
+.detail-link{font-family:var(--cond);font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--steel);text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-top:1rem}
+.detail-link::after{content:'→';font-size:14px}
+
+/* INDIGENOUS + FOOTER */
+.indigenous{background:#205048;padding:2.5rem 4rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+footer{background:var(--steel);padding:1.5rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-wordmark{font-family:var(--cond);font-size:16px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.85)}
+.footer-copy{font-family:var(--body);font-size:13px;font-weight:300;color:rgba(255,255,255,0.4)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr}
+  .hero-img-side{min-height:320px}
+  .fact-bar{grid-template-columns:1fr 1fr}
+  .fact-item:nth-child(2){border-right:none}
+  .fact-item:nth-child(3){border-top:1px solid rgba(0,0,0,0.1)}
+  .problem{grid-template-columns:1fr}
+  .problem-img{min-height:260px}
+  .del-row{grid-template-columns:60px 1fr;padding:1.25rem 2rem}
+  .del-desc{grid-column:2/3}
+  .scope{grid-template-columns:1fr;gap:3rem;padding:3.5rem 2rem}
+  .phases .phase{grid-template-columns:1fr}
+  .phase-label-col{padding:2rem 2rem 0.5rem;border-right:none;border-bottom:none}
+  .phase-steps-col{padding:1rem 2rem 2rem}
+  .process-banner-text{padding:2rem 2rem}
+  .cta-band-content{padding:3.5rem 2rem}
+  .details-strip{grid-template-columns:1fr}
+  .detail-block:first-child{border-right:none;border-bottom:1px solid var(--rule)}
+  .detail-block{padding:2.5rem 2rem}
+  .indigenous{padding:2.5rem 2rem}
+  footer{padding:1.5rem 2rem}
+  nav{padding:0 1.5rem}
+}
+@media(max-width:600px){
+  .fact-bar{grid-template-columns:1fr 1fr}
+  .deliverables{padding:3rem 0}
+  .deliverables-header{padding:0 1.5rem 2rem}
+  .del-row{padding:1rem 1.5rem;gap:1rem}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <a href="https://ownerprojectoffice.com"><img src="data:image/png;base64,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" alt="OPO logo" style="height:44px;width:auto;display:block;background:transparent"></a>
+  </div>
+  <div class="nav-links">
+    <a href="https://ownerprojectoffice.com/#services">Services</a>
+    <a href="https://ownerprojectoffice.com/#safety">Safety</a>
+    <a href="https://ownerprojectoffice.com/#about">About</a>
+    <a href="https://calendar.app.google/gkcouQP45Wtxyf9S9" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- HERO: split left text / right image -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Project Control Gap Review</div>
+    <h1>Find Out Where<br>Your Projects<br><span>Are Failing.</span></h1>
+    <p class="hero-sub">A fixed-fee diagnostic that maps every gap in your project controls, safety documentation, and reporting structure. Delivered in five business days.</p>
+    <div class="hero-cta-row">
+      <a href="https://calendar.app.google/gkcouQP45Wtxyf9S9" class="btn-amber">Book a 30-Minute Call</a>
+      <a href="#what-is-included" class="btn-ghost">See What's Included</a>
+    </div>
+  </div>
+  <div class="hero-img-side">
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80&ixlib=rb-4.1.0" alt="Construction engineer reviewing plans on industrial site">
+  </div>
+</section>
+
+<!-- FACT BAR -->
+<div class="fact-bar">
+  <div class="fact-item">
+    <span class="fact-val">5</span>
+    <span class="fact-label">Business Days to Deliver</span>
+  </div>
+  <div class="fact-item">
+    <span class="fact-val">3</span>
+    <span class="fact-label">Calls Included</span>
+  </div>
+  <div class="fact-item">
+    <span class="fact-val">9</span>
+    <span class="fact-label">Deliverables in Package</span>
+  </div>
+  <div class="fact-item">
+    <span class="fact-val">Fixed</span>
+    <span class="fact-label">No Billable Hours</span>
+  </div>
+</div>
+
+<!-- PROBLEM: image left, pain points right -->
+<section class="problem">
+  <div class="problem-img">
+    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80&ixlib=rb-4.1.0" alt="Industrial site worker reviewing documentation with clipboard">
+  </div>
+  <div class="problem-text">
+    <div class="section-eyebrow">The problem</div>
+    <h2 class="section-heading">You're running projects.<br>Who's watching the controls?</h2>
+    <p class="section-body">Most industrial companies build project execution on habits, not systems. Things get done because people remember to do them, not because a process requires it. That works until a missed handoff or an audit you can't pass.</p>
+    <div class="pain-list">
+      <div class="pain-item">
+        <div class="pain-title">No clear project controls</div>
+        <div class="pain-desc">Schedules, scope, and budgets tracked differently on every project. Nothing ties together at the program level.</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-title">Safety documentation gaps</div>
+        <div class="pain-desc">Records exist, but they're scattered. You couldn't pass an audit today and you know it.</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-title">Reporting built on memory</div>
+        <div class="pain-desc">When key people leave, the knowledge walks out with them. The next project starts from scratch.</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-title">Handoffs that drop the ball</div>
+        <div class="pain-desc">Projects close and critical information disappears. Accountability is assumed, not assigned.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="deliverables" id="what-is-included">
+  <div class="deliverables-header">
+    <div class="section-eyebrow">Deliverables</div>
+    <h2 class="section-heading">Everything included. One price.</h2>
+    <p class="section-body" style="max-width:520px;margin:0 auto">One flat-fee package. One week. A complete picture of where your project controls stand and a clear path to fixing them.</p>
+  </div>
+  <div class="del-list">
+    <div class="del-row">
+      <div class="del-num-big">01</div>
+      <div>
+        <div class="del-name">Kickoff Agenda</div>
+        <div class="del-amber-bar"></div>
+      </div>
+      <div class="del-desc">Structured 45-minute kickoff covering your current workflows, pain points, and what a successful review looks like for your team.</div>
+    </div>
+    <div class="del-row">
+      <div class="del-num-big">02</div>
+      <div>
+        <div class="del-name">Current State Notes</div>
+        <div class="del-amber-bar"></div>
+      </div>
+      <div class="del-desc">Documented summary of your existing project controls, document management practices, and communication structure as they actually work today.</div>
+    </div>
+    <div class="del-row">
+      <div class="del-num-big">03</div>
+      <div>
+        <div class="del-name">Gap List</div>
+        <div class="del-amber-bar"></div>
+      </div>
+      <div class="del-desc">Complete inventory of identified gaps across project controls, safety documentation, reporting cadence, risk management, and project handoffs.</div>
+    </div>
+    <div class="del-row">
+      <div class="del-num-big">04</div>
+      <div>
+        <div class="del-name">Risk Ranking</div>
+        <div class="del-amber-bar"></div>
+      </div>
+      <div class="del-desc">Every gap scored High, Medium, or Low. You'll know exactly which gaps are costing you now versus which can wait.</div>
+    </div>
+    <div class="del-row">
+      <div class="del-num-big">05</div>
+      <div>
+        <div class="del-name">Quick Wins List</div>
+        <div class="del-amber-bar"></div>
+      </div>
+      <div class="del-desc">Immediate, low-effort fixes your team can implement this week without hiring anyone or buying new software.</div>
+    </div>
+    <div class="del-row">
+      <div class="del-num-big">06</div>
+      <div>
+        <div class="del-name">30-Day Recommendation</div>
+        <div class="del-amber-bar"></div>
+      </div>
+      <div class="del-desc">A prioritized implementation roadmap: what to fix first, what resources you need, and what the outcome looks like when you're done.</div>
+    </div>
+    <div class="del-row">
+      <div class="del-num-big">07</div>
+      <div>
+        <div class="del-name">Closeout Meeting</div>
+        <div class="del-amber-bar"></div>
+      </div>
+      <div class="del-desc">60-minute walkthrough of findings with your decision-maker. Questions answered, next steps confirmed, report handed off clean.</div>
+    </div>
+    <div class="del-row">
+      <div class="del-num-big">08</div>
+      <div>
+        <div class="del-name">Final PDF Report</div>
+        <div class="del-amber-bar"></div>
+      </div>
+      <div class="del-desc">A professional 3 to 5 page findings summary: all gaps, all rankings, all recommendations. Ready to share with your leadership team.</div>
+    </div>
+    <div class="del-row">
+      <div class="del-num-big">09</div>
+      <div>
+        <div class="del-name">3-Day Follow-Up</div>
+        <div class="del-amber-bar"></div>
+      </div>
+      <div class="del-desc">OPO checks back within three business days to answer questions and confirm your team is moving on the quick wins.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS: banner image + phases -->
+<section>
+  <div class="process-banner">
+    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1400&q=80&ixlib=rb-4.1.0" alt="Industrial infrastructure with hard hats and equipment">
+    <div class="process-banner-overlay"></div>
+    <div class="process-banner-text">
+      <div class="section-eyebrow">How it works</div>
+      <h2 class="section-heading" style="color:var(--white)">Five days. Five phases.</h2>
+    </div>
+  </div>
+  <div class="phases">
+    <div class="phase">
+      <div class="phase-label-col">
+        <div class="phase-num">01</div>
+        <div class="phase-name">Pre-Kickoff</div>
+      </div>
+      <div class="phase-steps-col">
+        <div class="phase-step">OPO confirms project fit based on your company size and sector</div>
+        <div class="phase-step">You receive the offer summary and payment options upfront</div>
+        <div class="phase-step">Invoice issued: pay in full to start, or split 50% at kickoff and 50% at closeout</div>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-label-col">
+        <div class="phase-num">02</div>
+        <div class="phase-name">Kickoff</div>
+      </div>
+      <div class="phase-steps-col">
+        <div class="phase-step">45-minute kickoff call scheduled with your project lead or decision-maker</div>
+        <div class="phase-step">Current workflows, tools, pain points, and constraints documented in detail</div>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-label-col">
+        <div class="phase-num">03</div>
+        <div class="phase-name">Information</div>
+      </div>
+      <div class="phase-steps-col">
+        <div class="phase-step">OPO sends a structured document request: project samples, trackers, org chart, risk and change logs</div>
+        <div class="phase-step">You provide what you have. Missing items are noted as gaps, not blockers</div>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-label-col">
+        <div class="phase-num">04</div>
+        <div class="phase-name">Review</div>
+      </div>
+      <div class="phase-steps-col">
+        <div class="phase-step">OPO maps your current project workflow end to end</div>
+        <div class="phase-step">Project controls reviewed: scope, schedule, budget, change management, and accountability</div>
+        <div class="phase-step">Document control assessed: naming, version control, storage, and access</div>
+        <div class="phase-step">Safety documentation reviewed: records, tracking, and compliance gaps identified</div>
+        <div class="phase-step">Communication and reporting structure evaluated</div>
+        <div class="phase-step">All gaps ranked High / Medium / Low risk</div>
+        <div class="phase-step">Optional 20-minute clarification call available if questions arise mid-review</div>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-label-col">
+        <div class="phase-num">05</div>
+        <div class="phase-name">Closeout</div>
+      </div>
+      <div class="phase-steps-col">
+        <div class="phase-step">Final 3 to 5 page PDF findings report completed</div>
+        <div class="phase-step">Closeout call with your decision-maker to walk through all findings</div>
+        <div class="phase-step">Final package delivered: report, gap list, risk ranking, 30-day roadmap</div>
+        <div class="phase-step">OPO follows up within 3 business days to confirm momentum</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCOPE: in vs. out -->
+<section class="scope">
+  <div>
+    <div class="section-eyebrow">What's in scope</div>
+    <h2 class="section-heading" style="color:var(--white)">A review. Not a rebuild.</h2>
+    <p class="scope-body">The Gap Review is a diagnostic tool. It tells you exactly what's broken and what to fix next. The systems build is a separate engagement if you want OPO to do the work.</p>
+    <div class="scope-items">
+      <div class="scope-item">
+        <div class="scope-item-icon"><svg viewBox="0 0 8 8"><polyline points="1,4 3,6 7,2"/></svg></div>
+        Project control gap assessment
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-icon"><svg viewBox="0 0 8 8"><polyline points="1,4 3,6 7,2"/></svg></div>
+        Safety documentation gap review
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-icon"><svg viewBox="0 0 8 8"><polyline points="1,4 3,6 7,2"/></svg></div>
+        Reporting and communication structure review
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-icon"><svg viewBox="0 0 8 8"><polyline points="1,4 3,6 7,2"/></svg></div>
+        Handoff and accountability mapping
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-icon"><svg viewBox="0 0 8 8"><polyline points="1,4 3,6 7,2"/></svg></div>
+        Risk-ranked gap list with quick wins
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-icon"><svg viewBox="0 0 8 8"><polyline points="1,4 3,6 7,2"/></svg></div>
+        30-day prioritized implementation recommendation
+      </div>
+      <div class="scope-item">
+        <div class="scope-item-icon"><svg viewBox="0 0 8 8"><polyline points="1,4 3,6 7,2"/></svg></div>
+        3 calls included: kickoff, optional clarification, closeout
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="section-eyebrow" style="color:rgba(255,255,255,0.35)">Out of scope</div>
+    <h2 class="section-heading" style="color:rgba(255,255,255,0.5);font-size:clamp(28px,3vw,40px)">Not part of this package</h2>
+    <p class="scope-body">These are available as follow-on engagements or through OPO's fractional retainer model.</p>
+    <div class="scope-items">
+      <div class="scope-item out">
+        <div class="scope-item-icon"><svg viewBox="0 0 8 8"><line x1="2" y1="2" x2="6" y2="6"/><line x1="6" y1="2" x2="2" y2="6"/></svg></div>
+        Full PMO build or systems implementation
+      </div>
+      <div class="scope-item out">
+        <div class="scope-item-icon"><svg viewBox="0 0 8 8"><line x1="2" y1="2" x2="6" y2="6"/><line x1="6" y1="2" x2="2" y2="6"/></svg></div>
+        Safety manual writing or OHS program development
+      </div>
+      <div class="scope-item out">
+        <div class="scope-item-icon"><svg viewBox="0 0 8 8"><line x1="2" y1="2" x2="6" y2="6"/><line x1="6" y1="2" x2="2" y2="6"/></svg></div>
+        Ongoing fractional PM or owner representation
+      </div>
+      <div class="scope-item out">
+        <div class="scope-item-icon"><svg viewBox="0 0 8 8"><line x1="2" y1="2" x2="6" y2="6"/><line x1="6" y1="2" x2="2" y2="6"/></svg></div>
+        Contractor or vendor management
+      </div>
+      <div class="scope-item out">
+        <div class="scope-item-icon"><svg viewBox="0 0 8 8"><line x1="2" y1="2" x2="6" y2="6"/><line x1="6" y1="2" x2="2" y2="6"/></svg></div>
+        Legal or engineered document review
+      </div>
+      <div class="scope-item out">
+        <div class="scope-item-icon"><svg viewBox="0 0 8 8"><line x1="2" y1="2" x2="6" y2="6"/><line x1="6" y1="2" x2="2" y2="6"/></svg></div>
+        Ongoing reporting or live PM work
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND with industrial image -->
+<section class="cta-band" id="book">
+  <div class="cta-band-img">
+    <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1400&q=80&ixlib=rb-4.1.0" alt="Industrial infrastructure pipeline and equipment">
+  </div>
+  <div class="cta-band-overlay"></div>
+  <div class="cta-band-content">
+    <div class="section-eyebrow">Get started</div>
+    <h2 class="section-heading" style="color:var(--white)">30 minutes is all it takes to start.</h2>
+    <p class="cta-band-sub">Book a call to confirm fit. If the Gap Review is right for your business, OPO sends the offer summary and invoice within 24 hours. Your findings report arrives within five business days of your information.</p>
+    <div class="cta-timeline-note">Delivered in 5 business days after kickoff</div>
+    <div class="cta-btn-row">
+      <a href="https://calendar.app.google/gkcouQP45Wtxyf9S9" class="btn-amber">Book a 30-Minute Call</a>
+      <a href="mailto:info@ownerprojectoffice.com" class="btn-ghost">Email OPO</a>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS STRIP: payment + upsell -->
+<div class="details-strip">
+  <div class="detail-block">
+    <div class="detail-label">Payment options</div>
+    <div class="detail-heading">Flexible from the start.</div>
+    <div class="detail-body">Pay in full at kickoff to get started right away, or split the payment: 50% at kickoff and 50% at closeout. No hourly billing. No invoices mid-project. One clear number before work begins.</div>
+  </div>
+  <div class="detail-block">
+    <div class="detail-label">After the review</div>
+    <div class="detail-heading">Ready to fix it? OPO builds the system.</div>
+    <div class="detail-body">The Gap Review rolls directly into OPO's 30-Day Systems Build or a monthly fractional OPO retainer. The review findings become the build plan. No re-onboarding, no starting over.</div>
+    <a href="https://calendar.app.google/gkcouQP45Wtxyf9S9" class="detail-link">Talk to OPO about next steps</a>
+  </div>
+</div>
+
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-wordmark">Owner Project Office</div>
+  <div class="footer-copy">&copy; 2026 OPO &middot; British Columbia &middot; All rights reserved.</div>
+</footer>
+
+</div>
+</body>
+</html>
