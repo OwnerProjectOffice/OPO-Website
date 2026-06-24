@@ -33,11 +33,23 @@ body{font-family:var(--body);background:var(--off-white);color:var(--ink);font-s
 /* NAV */
 nav{background:var(--white);padding:0 3rem;height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:100}
 .nav-left{display:flex;align-items:center;gap:14px}
-  .nav-opo-logo{height:44px;width:auto;display:block}
-.nav-wordmark{font-family:var(--cond);font-size:14px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--steel)}
+.nav-opo-logo{height:44px;width:auto;display:block}
+
 .nav-links{display:flex;gap:2rem;align-items:center}
 .nav-links a{font-family:var(--cond);font-size:14px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray-mid);text-decoration:none}
 .nav-cta{background:var(--steel);color:var(--white)!important;padding:8px 18px;border-radius:2px;font-size:11px!important}
+
+/* DROPDOWN */
+.nav-dropdown{position:relative;display:flex;align-items:center}
+.nav-dropdown>a{display:flex;align-items:center;gap:4px}
+.nav-dropdown>a::after{content:'';display:inline-block;width:6px;height:6px;border-right:1.5px solid var(--gray-mid);border-bottom:1.5px solid var(--gray-mid);transform:rotate(45deg);margin-top:-3px;transition:transform .2s}
+.nav-dropdown:hover>a::after{transform:rotate(-135deg);margin-top:3px}
+.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:12px;background:transparent;min-width:200px;z-index:200}
+.nav-dropdown-menu-inner{background:var(--white);border:1px solid var(--rule);border-radius:2px;box-shadow:0 4px 16px rgba(30,58,95,0.1)}
+.nav-dropdown:hover .nav-dropdown-menu{display:block}
+.nav-dropdown-menu-inner a{display:block;font-family:var(--cond);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray-mid);text-decoration:none;padding:10px 16px;white-space:nowrap;border-bottom:1px solid var(--rule)}
+.nav-dropdown-menu-inner a:last-child{border-bottom:none}
+.nav-dropdown-menu-inner a:hover{color:var(--steel);background:var(--steel-light)}
 
 /* HERO: full-width split */
 .hero{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
